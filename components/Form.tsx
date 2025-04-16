@@ -5,10 +5,14 @@ const Form = () => {
   const [submitQuestion, setSubmitQuestion] = useState<{
     name: string;
     student: boolean | undefined;
+    transportation: string;
   }>({
     name: "",
     student: undefined,
+    transportation: "",
   });
+
+  const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -17,15 +21,45 @@ const Form = () => {
   ) => {
     const { name, value } = e.target;
 
-    setSubmitQuestion((prev) => ({
-      ...prev,
-      [name]: name === "student" ? value === "true" : value,
-    }));
+    if (name === "transportation") {
+      if (value === "Other") {
+        setOtherAnswer(true);
+        setSubmitQuestion((prev) => ({ ...prev, transportation: "" }));
+
+        return;
+      } else {
+        setOtherAnswer(false);
+      }
+    }
+
+    setSubmitQuestion((prev) => {
+      if (name === "student") {
+        return { ...prev, [name]: value === "true" };
+      }
+
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Submitted");
+
+    setSubmitQuestion({
+      name: "",
+      student: undefined,
+      transportation: "",
+    });
+
+    setOtherAnswer(false);
   };
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="container border p-3 bg-neutral-700 m-auto max-w-md flex flex-col justify-center items-center">
+      <form
+        onSubmit={handleSubmit}
+        className="container border p-3 bg-neutral-700 m-auto max-w-md flex flex-col justify-center items-center"
+      >
         <fieldset className="border w-full p-3 rounded">
           <legend className="p-1 text-2xl">Tell us about yourself?</legend>
 
@@ -55,6 +89,7 @@ const Form = () => {
                     className="mr-2"
                     name="student"
                     id="student"
+                    checked={submitQuestion.student === true}
                   />
                   Yes
                 </label>
@@ -63,13 +98,43 @@ const Form = () => {
                   <input
                     value="false"
                     type="radio"
+                    onChange={handleChange}
                     className="mr-2"
                     name="student"
                     id="student"
+                    checked={submitQuestion.student === false}
                   />
                   No
                 </label>
               </div>
+            </div>
+
+            {/* transportation */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="commute">Do you commute by:</label>
+              <select
+                name="transportation"
+                id="commute"
+                className="rounded text-black bg-white p-1"
+                onChange={handleChange}
+              >
+                <option value=""> -- Select -- </option>
+                <option value="Bus">Bus 🚌</option>
+                <option value="Taxi">Taxi 🚕</option>
+                <option value="Luás">Luás 🚃</option>
+                <option value="Car">Car 🚗</option>
+                <option value="Other">Other</option>
+              </select>
+              {otherAnswer && (
+                <input
+                  name="transportation"
+                  className="bg-white text-black p-2 rounded"
+                  type="text"
+                  placeholder="Other"
+                  onChange={handleChange}
+                  value={submitQuestion.transportation}
+                />
+              )}
             </div>
           </div>
         </fieldset>
