@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Activities from "./Questions/Activities";
+import StudentQuestion from "./Questions/StudentQuestion";
 
 const Form = () => {
   const [submitQuestion, setSubmitQuestion] = useState<{
@@ -77,38 +79,10 @@ const Form = () => {
             </div>
 
             {/* student */}
-            <div>
-              <span className="mb-3">Are you a student?</span>
-              <div className="flex flex-col">
-                <label htmlFor="student-yes" className="">
-                  <input
-                    type="radio"
-                    value="true"
-                    onChange={handleChange}
-                    placeholder="Yes"
-                    className="mr-2"
-                    name="student"
-                    id="student"
-                    checked={submitQuestion.student === true}
-                  />
-                  Yes
-                </label>
-
-                <label htmlFor="student-no">
-                  <input
-                    value="false"
-                    type="radio"
-                    onChange={handleChange}
-                    className="mr-2"
-                    name="student"
-                    id="student"
-                    checked={submitQuestion.student === false}
-                  />
-                  No
-                </label>
-              </div>
-            </div>
-
+            <StudentQuestion
+              onChange={handleChange}
+              checked={submitQuestion.student}
+            />
             {/* transportation */}
             <div className="flex flex-col gap-2">
               <label htmlFor="commute">Do you commute by:</label>
@@ -136,6 +110,8 @@ const Form = () => {
                 />
               )}
             </div>
+
+            <Activities />
           </div>
         </fieldset>
 
