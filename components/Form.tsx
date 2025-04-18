@@ -2,13 +2,17 @@
 import { useState } from "react";
 import Activities from "./Questions/Activities";
 import StudentQuestion from "./Questions/StudentQuestion";
+import type { ChangeEvent, FormEvent } from "react";
+import CommuteQuestion from "./Questions/CommuteQuestion";
+
+export type FormValues = {
+  name: string;
+  student: boolean | undefined;
+  transportation: string;
+};
 
 const Form = () => {
-  const [submitQuestion, setSubmitQuestion] = useState<{
-    name: string;
-    student: boolean | undefined;
-    transportation: string;
-  }>({
+  const [submitQuestion, setSubmitQuestion] = useState<FormValues>({
     name: "",
     student: undefined,
     transportation: "",
@@ -17,35 +21,40 @@ const Form = () => {
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
-    if (name === "transportation") {
-      if (value === "Other") {
-        setOtherAnswer(true);
-        setSubmitQuestion((prev) => ({ ...prev, transportation: "" }));
-
-        return;
-      } else {
-        setOtherAnswer(false);
-      }
+    if (name === "name") {
+      setSubmitQuestion((prev) => ({ ...prev, name: value }));
     }
 
-    setSubmitQuestion((prev) => {
-      if (name === "student") {
-        return { ...prev, [name]: value === "true" };
+    if (name === "transportation") {
+      setOtherAnswer(value === "Other");
+
+      if (value !== "Other") {
+        setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
+      } else {
+        setSubmitQuestion((prev) => ({ ...prev, transportation: "" }));
       }
 
-      return { ...prev, [name]: value };
-    });
+      return;
+    }
+
+    if (name === "transportationOther") {
+      setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
+    }
+
+    if (name === "student") {
+      setSubmitQuestion((prev) => ({ ...prev, [name]: value === "true" }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted");
+    console.log(
+      `Thank you! ${submitQuestion.name}, ${submitQuestion.student}, ${submitQuestion.transportation}`
+    );
 
     setSubmitQuestion({
       name: "",
@@ -72,6 +81,7 @@ const Form = () => {
               <input
                 id="name"
                 type="text"
+                name="name"
                 value={submitQuestion.name}
                 onChange={handleChange}
                 className="border p-2 bg-white rounded text-black"
@@ -83,33 +93,13 @@ const Form = () => {
               onChange={handleChange}
               checked={submitQuestion.student}
             />
+
             {/* transportation */}
-            <div className="flex flex-col gap-2">
-              <label htmlFor="commute">Do you commute by:</label>
-              <select
-                name="transportation"
-                id="commute"
-                className="rounded text-black bg-white p-1"
-                onChange={handleChange}
-              >
-                <option value=""> -- Select -- </option>
-                <option value="Bus">Bus 🚌</option>
-                <option value="Taxi">Taxi 🚕</option>
-                <option value="Luás">Luás 🚃</option>
-                <option value="Car">Car 🚗</option>
-                <option value="Other">Other</option>
-              </select>
-              {otherAnswer && (
-                <input
-                  name="transportation"
-                  className="bg-white text-black p-2 rounded"
-                  type="text"
-                  placeholder="Other"
-                  onChange={handleChange}
-                  value={submitQuestion.transportation}
-                />
-              )}
-            </div>
+            <CommuteQuestion
+              onChange={handleChange}
+              transportation={submitQuestion.transportation}
+              otherAnswer={otherAnswer}
+            />
 
             <Activities />
           </div>

@@ -1,5 +1,7 @@
+import { type ChangeEvent } from "react";
+
 type Props = {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   checked: boolean | undefined;
 };
 
