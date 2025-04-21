@@ -9,6 +9,7 @@ export type FormValues = {
   name: string;
   student: boolean | undefined;
   transportation: string;
+  activity: string;
 };
 
 const Form = () => {
@@ -16,6 +17,7 @@ const Form = () => {
     name: "",
     student: undefined,
     transportation: "",
+    activity: "",
   });
 
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
@@ -25,8 +27,8 @@ const Form = () => {
   ) => {
     const { name, value } = e.target;
 
-    if (name === "name") {
-      setSubmitQuestion((prev) => ({ ...prev, name: value }));
+    if (name === "student") {
+      setSubmitQuestion((prev) => ({ ...prev, [name]: value === "true" }));
     }
 
     if (name === "transportation") {
@@ -45,31 +47,33 @@ const Form = () => {
       setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
     }
 
-    if (name === "student") {
-      setSubmitQuestion((prev) => ({ ...prev, [name]: value === "true" }));
-    }
+    setSubmitQuestion((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(
-      `Thank you! ${submitQuestion.name}, ${submitQuestion.student}, ${submitQuestion.transportation}`
+
+    const studentAnswer = submitQuestion.student ? "Yes" : "No";
+
+    alert(
+      `Thank you! ${submitQuestion.name}, ${studentAnswer}, ${submitQuestion.transportation}, ${submitQuestion.activity}`
     );
 
     setSubmitQuestion({
       name: "",
       student: undefined,
       transportation: "",
+      activity: "",
     });
 
     setOtherAnswer(false);
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen px-3">
       <form
         onSubmit={handleSubmit}
-        className="container border p-3 bg-neutral-700 m-auto max-w-md flex flex-col justify-center items-center"
+        className="container p-3 bg-neutral-700 m-auto max-w-md rounded flex flex-col justify-center items-center"
       >
         <fieldset className="border w-full p-3 rounded">
           <legend className="p-1 text-2xl">Tell us about yourself?</legend>
@@ -101,13 +105,11 @@ const Form = () => {
               otherAnswer={otherAnswer}
             />
 
-            <Activities />
+            <Activities onChange={handleChange} />
           </div>
         </fieldset>
 
-        <button className="border bg-blue-500 px-3 py-1 rounded mt-3">
-          Submit
-        </button>
+        <button className=" bg-blue-500 px-3 py-1 rounded mt-3">Submit</button>
       </form>
     </div>
   );
