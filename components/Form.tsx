@@ -4,6 +4,7 @@ import Activities from "./Questions/Activities";
 import StudentQuestion from "./Questions/StudentQuestion";
 import type { ChangeEvent, FormEvent } from "react";
 import CommuteQuestion from "./Questions/CommuteQuestion";
+import NameQuestion from "./Questions/NameQuestion";
 
 export type FormValues = {
   name: string;
@@ -11,6 +12,10 @@ export type FormValues = {
   transportation: string;
   activity: string;
 };
+
+export type FormEventType = ChangeEvent<
+  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+>;
 
 const Form = () => {
   const [submitQuestion, setSubmitQuestion] = useState<FormValues>({
@@ -22,13 +27,12 @@ const Form = () => {
 
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: FormEventType) => {
     const { name, value } = e.target;
 
     if (name === "student") {
       setSubmitQuestion((prev) => ({ ...prev, [name]: value === "true" }));
+      return;
     }
 
     if (name === "transportation") {
@@ -80,17 +84,7 @@ const Form = () => {
 
           <div className="flex flex-col justify-start max-w-sm space-y-1">
             {/* name */}
-            <div className="flex flex-col">
-              <label htmlFor="name">What's your name?</label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                value={submitQuestion.name}
-                onChange={handleChange}
-                className="border p-2 bg-white rounded text-black"
-              />
-            </div>
+            <NameQuestion onChange={handleChange} name={submitQuestion.name} />
 
             {/* student */}
             <StudentQuestion
@@ -104,12 +98,14 @@ const Form = () => {
               transportation={submitQuestion.transportation}
               otherAnswer={otherAnswer}
             />
-
+            {/* activities */}
             <Activities onChange={handleChange} />
           </div>
         </fieldset>
 
-        <button className=" bg-blue-500 px-3 py-1 rounded mt-3">Submit</button>
+        <button className=" bg-blue-500 px-3 py-1 rounded mt-3">
+          Next Page
+        </button>
       </form>
     </div>
   );
