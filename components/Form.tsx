@@ -5,6 +5,7 @@ import StudentQuestion from "./Questions/StudentQuestion";
 import type { ChangeEvent, FormEvent } from "react";
 import CommuteQuestion from "./Questions/CommuteQuestion";
 import NameQuestion from "./Questions/NameQuestion";
+import Link from "next/link";
 
 export type FormValues = {
   name: string;
@@ -102,10 +103,11 @@ const Form = () => {
             <Activities onChange={handleChange} />
           </div>
         </fieldset>
-
-        <button className=" bg-blue-500 px-3 py-1 rounded mt-3">
-          Next Page
-        </button>
+        <Link href="/Page2">
+          <button className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded mt-3">
+            Next Page
+          </button>
+        </Link>
       </form>
     </div>
   );

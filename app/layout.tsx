@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "../components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Header
+          img={{ src: "/images/form-logo.png", alt: "Form Logo" }}
+          title="Form Survey"
+        />
+        <main role="main" className="bg-gray-900">
+          {children}
+        </main>
+        <footer className="text-center p-5 bg-black">
+          Footer 2025 Frederico
+        </footer>
       </body>
     </html>
   );
