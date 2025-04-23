@@ -1,115 +1,42 @@
 "use client";
-import { useState } from "react";
+import Link from "next/link";
+import { useFormContext } from "../app/context/FormContext";
 import Activities from "./Questions/Activities";
 import StudentQuestion from "./Questions/StudentQuestion";
-import type { ChangeEvent, FormEvent } from "react";
 import CommuteQuestion from "./Questions/CommuteQuestion";
 import NameQuestion from "./Questions/NameQuestion";
-import Link from "next/link";
-
-export type FormValues = {
-  name: string;
-  student: boolean | undefined;
-  transportation: string;
-  activity: string;
-};
-
-export type FormEventType = ChangeEvent<
-  HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
->;
+import FormSection from "./FormSection";
 
 const Form = () => {
-  const [submitQuestion, setSubmitQuestion] = useState<FormValues>({
-    name: "",
-    student: undefined,
-    transportation: "",
-    activity: "",
-  });
-
-  const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
-
-  const handleChange = (e: FormEventType) => {
-    const { name, value } = e.target;
-
-    if (name === "student") {
-      setSubmitQuestion((prev) => ({ ...prev, [name]: value === "true" }));
-      return;
-    }
-
-    if (name === "transportation") {
-      setOtherAnswer(value === "Other");
-
-      if (value !== "Other") {
-        setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
-      } else {
-        setSubmitQuestion((prev) => ({ ...prev, transportation: "" }));
-      }
-
-      return;
-    }
-
-    if (name === "transportationOther") {
-      setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
-    }
-
-    setSubmitQuestion((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const studentAnswer = submitQuestion.student ? "Yes" : "No";
-
-    alert(
-      `Thank you! ${submitQuestion.name}, ${studentAnswer}, ${submitQuestion.transportation}, ${submitQuestion.activity}`
-    );
-
-    setSubmitQuestion({
-      name: "",
-      student: undefined,
-      transportation: "",
-      activity: "",
-    });
-
-    setOtherAnswer(false);
-  };
+  const {
+    submitQuestion,
+    setSubmitQuestion,
+    otherAnswer,
+    setOtherAnswer,
+    handleChange,
+    handleSubmit,
+  } = useFormContext();
 
   return (
-    <div className="flex justify-center items-center h-screen px-3">
-      <form
-        onSubmit={handleSubmit}
-        className="container p-3 bg-neutral-700 m-auto max-w-md rounded flex flex-col justify-center items-center"
-      >
-        <fieldset className="border w-full p-3 rounded">
-          <legend className="p-1 text-2xl">Tell us about yourself?</legend>
+    <FormSection onSubmit={handleSubmit} next="/Page2">
+      {/* name */}
+      <NameQuestion onChange={handleChange} name={submitQuestion.name} />
 
-          <div className="flex flex-col justify-start max-w-sm space-y-1">
-            {/* name */}
-            <NameQuestion onChange={handleChange} name={submitQuestion.name} />
+      {/* student */}
+      <StudentQuestion
+        onChange={handleChange}
+        checked={submitQuestion.student}
+      />
 
-            {/* student */}
-            <StudentQuestion
-              onChange={handleChange}
-              checked={submitQuestion.student}
-            />
-
-            {/* transportation */}
-            <CommuteQuestion
-              onChange={handleChange}
-              transportation={submitQuestion.transportation}
-              otherAnswer={otherAnswer}
-            />
-            {/* activities */}
-            <Activities onChange={handleChange} />
-          </div>
-        </fieldset>
-        <Link href="/Page2">
-          <button className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded mt-3">
-            Next Page
-          </button>
-        </Link>
-      </form>
-    </div>
+      {/* transportation */}
+      <CommuteQuestion
+        onChange={handleChange}
+        transportation={submitQuestion.transportation}
+        otherAnswer={otherAnswer}
+      />
+      {/* activities */}
+      <Activities onChange={handleChange} />
+    </FormSection>
   );
 };
 export default Form;

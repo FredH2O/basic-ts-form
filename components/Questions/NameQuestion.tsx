@@ -1,5 +1,5 @@
 import type { ChangeEvent } from "react";
-import { FormValues } from "../Form";
+import { FormValues } from "../../app/context/FormContext";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
