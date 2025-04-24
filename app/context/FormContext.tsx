@@ -10,9 +10,9 @@ import {
 
 export type FormValues = {
   name: string;
-  student: boolean | undefined;
-  transportation: string;
-  activity: string;
+  description: string;
+  challenges: string;
+  personality: string;
 };
 
 type FormContextType = {
@@ -39,9 +39,9 @@ export const useFormContext = () => {
 export const FormProvider = ({ children }: { children: ReactNode }) => {
   const [submitQuestion, setSubmitQuestion] = useState<FormValues>({
     name: "",
-    student: undefined,
-    transportation: "",
-    activity: "",
+    description: "",
+    challenges: "",
+    personality: "",
   });
 
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
@@ -51,25 +51,20 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   ) => {
     const { name, value } = e.target;
 
-    if (name === "student") {
-      setSubmitQuestion((prev) => ({ ...prev, [name]: value === "true" }));
-      return;
-    }
-
-    if (name === "transportation") {
+    if (name === "challenges") {
       setOtherAnswer(value === "Other");
 
       if (value !== "Other") {
-        setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
+        setSubmitQuestion((prev) => ({ ...prev, challenges: value }));
       } else {
-        setSubmitQuestion((prev) => ({ ...prev, transportation: "" }));
+        setSubmitQuestion((prev) => ({ ...prev, challenges: "" }));
       }
 
       return;
     }
 
-    if (name === "transportationOther") {
-      setSubmitQuestion((prev) => ({ ...prev, transportation: value }));
+    if (name === "challengesOther") {
+      setSubmitQuestion((prev) => ({ ...prev, challenges: value }));
     }
 
     setSubmitQuestion((prev) => ({ ...prev, [name]: value }));
@@ -77,17 +72,16 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const studentAnswer = submitQuestion.student ? "Yes" : "No";
 
     alert(
-      `Thank you! ${submitQuestion.name}, ${studentAnswer}, ${submitQuestion.transportation}, ${submitQuestion.activity}`
+      `Thank you! ${submitQuestion.name}, ${submitQuestion.description}, ${submitQuestion.challenges}, ${submitQuestion.personality}`
     );
 
     setSubmitQuestion({
       name: "",
-      student: undefined,
-      transportation: "",
-      activity: "",
+      description: "",
+      challenges: "",
+      personality: "",
     });
 
     setOtherAnswer(false);

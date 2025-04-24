@@ -9,7 +9,9 @@ type Props = {
 const NameQuestion = ({ onChange, name }: Props) => {
   return (
     <div className="flex flex-col">
-      <label htmlFor="name">What's your name?</label>
+      <label className="text-2xl" htmlFor="name">
+        What should we call you?
+      </label>
       <input
         id="name"
         type="text"

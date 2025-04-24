@@ -1,10 +1,9 @@
 "use client";
-import Link from "next/link";
 import { useFormContext } from "../app/context/FormContext";
-import Activities from "./Questions/Activities";
-import StudentQuestion from "./Questions/StudentQuestion";
-import CommuteQuestion from "./Questions/CommuteQuestion";
-import NameQuestion from "./Questions/NameQuestion";
+import PersonalityQuestion from "./Identity/PersonalityQuestion";
+import DescriptionQuestion from "./Identity/DescriptionQuestion";
+import ChallangesQuestion from "./Identity/ChallengesQuestion";
+import NameQuestion from "./Identity/NameQuestion";
 import FormSection from "./FormSection";
 
 const Form = () => {
@@ -23,19 +22,16 @@ const Form = () => {
       <NameQuestion onChange={handleChange} name={submitQuestion.name} />
 
       {/* student */}
-      <StudentQuestion
-        onChange={handleChange}
-        checked={submitQuestion.student}
-      />
+      <DescriptionQuestion onChange={handleChange} />
 
       {/* transportation */}
-      <CommuteQuestion
+      <ChallangesQuestion
         onChange={handleChange}
-        transportation={submitQuestion.transportation}
+        challenges={submitQuestion.challenges}
         otherAnswer={otherAnswer}
       />
-      {/* activities */}
-      <Activities onChange={handleChange} />
+      {/* PersonalityQuestion */}
+      <PersonalityQuestion onChange={handleChange} />
     </FormSection>
   );
 };

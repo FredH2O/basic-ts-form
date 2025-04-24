@@ -34,7 +34,6 @@ export default function RootLayout({
           title="Form Survey"
         />
         <main role="main" className="bg-gray-900">
-          {/* form context here.. */}
           <FormProvider>{children}</FormProvider>
         </main>
         <footer className="text-center p-5 bg-black">

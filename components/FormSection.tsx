@@ -5,9 +5,15 @@ type FormSectionProp = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
   children: ReactNode;
   next: string;
+  previous?: string;
 };
 
-const FormSection = ({ onSubmit, children, next }: FormSectionProp) => {
+const FormSection = ({
+  onSubmit,
+  children,
+  next,
+  previous,
+}: FormSectionProp) => {
   return (
     <div className="flex justify-center items-center h-screen px-3">
       <form
@@ -21,11 +27,26 @@ const FormSection = ({ onSubmit, children, next }: FormSectionProp) => {
             {children}
           </div>
         </fieldset>
-        <Link href={next}>
-          <button className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded mt-3">
+        <div
+          className={`flex ${
+            previous ? "justify-between" : "justify-center"
+          } items-center p-3 w-full`}
+        >
+          {previous && (
+            <Link
+              className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+              href={previous}
+            >
+              Previous Page
+            </Link>
+          )}
+          <Link
+            className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+            href={next}
+          >
             Next Page
-          </button>
-        </Link>
+          </Link>
+        </div>
       </form>
     </div>
   );
