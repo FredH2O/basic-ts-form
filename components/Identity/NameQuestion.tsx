@@ -1,5 +1,6 @@
 import type { ChangeEvent } from "react";
 import { FormValues } from "../../app/context/FormContext";
+import Input from "../Input";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -12,13 +13,12 @@ const NameQuestion = ({ onChange, name }: Props) => {
       <label className="text-2xl" htmlFor="name">
         What should we call you?
       </label>
-      <input
+      <Input
         id="name"
         type="text"
         name="name"
         value={name}
         onChange={onChange}
-        className="border p-2 bg-white rounded text-black"
       />
     </div>
   );
