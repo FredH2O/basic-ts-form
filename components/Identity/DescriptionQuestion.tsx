@@ -1,4 +1,5 @@
 import { type ChangeEvent } from "react";
+import Input from "../Input";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -10,7 +11,7 @@ const DescriptionQuestion = ({ onChange }: Props) => {
       <p className="text-2xl pb-3">How do you usually describe yourself?</p>
       <div className="flex flex-col space-y-1">
         <label htmlFor="chillQuiet">
-          <input
+          <Input
             type="radio"
             value="Chill and Quiet"
             onChange={onChange}
@@ -23,7 +24,7 @@ const DescriptionQuestion = ({ onChange }: Props) => {
         </label>
 
         <label htmlFor="outgoingTalkative">
-          <input
+          <Input
             value="Outgoing and Talkative"
             type="radio"
             onChange={onChange}
@@ -35,7 +36,7 @@ const DescriptionQuestion = ({ onChange }: Props) => {
         </label>
 
         <label htmlFor="both">
-          <input
+          <Input
             value="Both"
             type="radio"
             onChange={onChange}
@@ -47,7 +48,7 @@ const DescriptionQuestion = ({ onChange }: Props) => {
         </label>
 
         <label htmlFor="notSure">
-          <input
+          <Input
             value="Not Sure"
             type="radio"
             onChange={onChange}

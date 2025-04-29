@@ -1,5 +1,6 @@
 import { type ChangeEvent } from "react";
 import { FormValues } from "../../app/context/FormContext";
+import Input from "../Input";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
@@ -28,7 +29,7 @@ const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
         <option value="Other">Other &#40;please specify&#41; 🤔</option>
       </select>
       {otherAnswer && (
-        <input
+        <Input
           name="challengesOther"
           className="bg-white text-black p-2 rounded"
           type="text"
