@@ -1,4 +1,4 @@
-import { PERSONALITY_TRAITS } from "../../const/personality";
+import { PERSONALITY_TRAITS } from "../../const/constants";
 import type { ChangeEvent } from "react";
 
 type Props = {
