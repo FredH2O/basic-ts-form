@@ -1,31 +1,31 @@
 export const PERSONALITY_TRAITS = [
   {
-    name: "Introvert - Prefers quiet and solitude 🌙.",
+    name: "Introvert - Prefers quiet and solitude 🌙",
     id: "introvert",
     value: "introvert",
   },
   {
-    name: "Extrovert - Energized by social settings 🌟.",
+    name: "Extrovert - Energized by social settings 🌟",
     id: "extrovert",
     value: "extrovert",
   },
   {
-    name: "Creative - Thinks outside the box 🎨.",
+    name: "Creative - Thinks outside the box 🎨",
     id: "creative",
     value: "creative",
   },
   {
-    name: "Analytical - Loves logic and structure 🧠.",
+    name: "Analytical - Loves logic and structure 🧠",
     id: "analytical",
     value: "analytical",
   },
   {
-    name: "Empathetic - Deeply feels for others 💖.",
+    name: "Empathetic - Deeply feels for others 💖",
     id: "empathetic",
     value: "empathetic",
   },
   {
-    name: "Adventurous - Embraces new experiences 🌍.",
+    name: "Adventurous - Embraces new experiences 🌍",
     id: "adventurous",
     value: "adventurous",
   },
