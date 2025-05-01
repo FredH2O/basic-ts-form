@@ -1,5 +1,6 @@
 import { PERSONALITY_TRAITS } from "../../const/constants";
 import type { ChangeEvent } from "react";
+import Input from "../Input";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -8,13 +9,13 @@ type Props = {
 const Personality = ({ onChange }: Props) => {
   return (
     <div className="flex flex-col justify-center gap-1">
-      <p className="text-2xl p-1">Which of these match your vibe?</p>
+      <p className="text-2xl p-1">Which type of friend do you prefer?</p>
       {PERSONALITY_TRAITS.map((personality) => (
         <div key={personality.id} className="flex gap-2 hover:text-blue-500 ">
-          <input
+          <Input
             onChange={onChange}
             className="hover:cursor-pointer"
-            type="checkbox"
+            type="radio"
             id={personality.name}
             name="personality"
             value={personality.value}

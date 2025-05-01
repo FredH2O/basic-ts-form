@@ -1,33 +1,43 @@
 export const PERSONALITY_TRAITS = [
   {
-    name: "Introvert - Prefers quiet and solitude 🌙",
+    name: "A quiet, thoughtful friend 🌙",
     id: "introvert",
     value: "introvert",
   },
   {
-    name: "Extrovert - Energized by social settings 🌟",
+    name: "A fun, outgoing friend 🌟",
     id: "extrovert",
     value: "extrovert",
   },
   {
-    name: "Creative - Thinks outside the box 🎨",
-    id: "creative",
-    value: "creative",
+    name: "A positive, sunny friend 🌞",
+    id: "optimist",
+    value: "optimist",
   },
   {
-    name: "Analytical - Loves logic and structure 🧠",
-    id: "analytical",
-    value: "analytical",
+    name: "An honest, grounded friend 🌧️",
+    id: "pessimist",
+    value: "pessimist",
   },
   {
-    name: "Empathetic - Deeply feels for others 💖",
-    id: "empathetic",
-    value: "empathetic",
+    name: "A careful, detail-loving friend 📋",
+    id: "perfectionist",
+    value: "perfectionist",
   },
   {
-    name: "Adventurous - Embraces new experiences 🌍",
-    id: "adventurous",
-    value: "adventurous",
+    name: "An adventurous, spontaneous friend 🌍",
+    id: "adventurer",
+    value: "adventurer",
+  },
+  {
+    name: "A calm, peaceful friend ☮️",
+    id: "peacemaker",
+    value: "peacemaker",
+  },
+  {
+    name: "A bold, take-charge friend 🦸‍♂️",
+    id: "leader",
+    value: "leader",
   },
 ] as const;
 
