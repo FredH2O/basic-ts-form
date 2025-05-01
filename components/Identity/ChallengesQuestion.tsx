@@ -1,6 +1,7 @@
 import { type ChangeEvent } from "react";
 import { FormValues } from "../../app/context/FormContext";
 import Input from "../Input";
+import { CHALLENGES } from "../../const/constants";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
@@ -21,19 +22,23 @@ const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
         onChange={onChange}
         value={challenges}
       >
-        <option value=""> -- Select -- </option>
-        <option value="introvert">Stay Calm 🌿</option>
-        <option value="extrovert">Dive in and figure it out as I go 🔧</option>
-        <option value="peacemaker">Asking for advice 🙏🏻</option>
-        <option value="perfectionist">Google the problem 💻</option>
-        <option value="Other">Other &#40;please specify&#41; 🤔</option>
+        {CHALLENGES.map((answer) => (
+          <option
+            disabled={answer.value === ""}
+            key={answer.key}
+            value={answer.value}
+          >
+            {answer.title}
+          </option>
+        ))}
       </select>
+
       {otherAnswer && (
         <Input
           name="challengesOther"
           className="bg-white text-black p-2 rounded"
           type="text"
-          placeholder="Other"
+          placeholder="What other could it be? 🤔"
           onChange={onChange}
           value={challenges}
         />

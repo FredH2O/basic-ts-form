@@ -69,9 +69,9 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     const { name, value } = e.target;
 
     if (name === "challenges") {
-      setOtherAnswer(value === "Other");
+      setOtherAnswer(value === "other");
 
-      if (value !== "Other") {
+      if (value !== "other") {
         setSubmitQuestion((prev) => ({ ...prev, challenges: value }));
       } else {
         setSubmitQuestion((prev) => ({ ...prev, challenges: "" }));

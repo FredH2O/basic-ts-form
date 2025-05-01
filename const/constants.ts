@@ -82,7 +82,12 @@ export const DESCRIPTION = [
   },
 ] as const;
 
-export const CHALLANGES = [
+export const CHALLENGES = [
+  {
+    title: "-- Select --",
+    value: "",
+    key: 0,
+  },
   {
     title: "Calm and Reserved 🌿",
     value: "introvert",
