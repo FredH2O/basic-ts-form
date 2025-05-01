@@ -22,10 +22,10 @@ const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
         value={challenges}
       >
         <option value=""> -- Select -- </option>
-        <option value="Calm">Stay Calm 🌿</option>
-        <option value="Dive">Dive in and figure it out as I go 🔧</option>
-        <option value="Advice">Asking for advice 🙏🏻</option>
-        <option value="Googling">Google the problem 💻</option>
+        <option value="introvert">Stay Calm 🌿</option>
+        <option value="extrovert">Dive in and figure it out as I go 🔧</option>
+        <option value="peacemaker">Asking for advice 🙏🏻</option>
+        <option value="perfectionist">Google the problem 💻</option>
         <option value="Other">Other &#40;please specify&#41; 🤔</option>
       </select>
       {otherAnswer && (

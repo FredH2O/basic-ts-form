@@ -82,5 +82,53 @@ export const DESCRIPTION = [
   },
 ] as const;
 
+export const CHALLANGES = [
+  {
+    title: "Calm and Reserved 🌿",
+    value: "introvert",
+    key: 1,
+  },
+  {
+    title: "Outgoing and Social 🔥",
+    value: "extrovert",
+    key: 2,
+  },
+  {
+    title: "Optimistic and Positive 🌞",
+    value: "optimist",
+    key: 3,
+  },
+  {
+    title: "Realistic and Cautious 🌧️",
+    value: "pessimist",
+    key: 4,
+  },
+  {
+    title: "Organized and Detail-Oriented 📋",
+    value: "perfectionist",
+    key: 5,
+  },
+  {
+    title: "Adventurous and Spontaneous 🌍",
+    value: "adventurer",
+    key: 6,
+  },
+  {
+    title: "Peaceful and Harmonious ☮️",
+    value: "peacemaker",
+    key: 7,
+  },
+  {
+    title: "Leader and Decision-Maker 🦸‍♂️",
+    value: "leader",
+    key: 8,
+  },
+  {
+    title: "Other (Please specify) 🤔",
+    value: "other",
+    key: 9,
+  },
+] as const;
+
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
 export type Answer = (typeof RELAX)[number]["value"];

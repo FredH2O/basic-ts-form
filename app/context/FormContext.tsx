@@ -26,6 +26,23 @@ type FormContextType = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 };
 
+const score = {
+  introvert: 0,
+  extrovert: 0,
+  optimist: 0,
+  pessimist: 0,
+  perfectionist: 0,
+  adventurer: 0,
+  peacemaker: 0,
+  leader: 0,
+};
+
+// const updateScore = (personality: string) => {
+//   if (score[personality] !== undefined) {
+//     score[personality]++;
+//   }
+// };
+
 const FormContext = createContext<FormContextType | undefined>(undefined);
 
 export const useFormContext = () => {
