@@ -8,9 +8,7 @@ type Props = {
 const Personality = ({ onChange }: Props) => {
   return (
     <div className="flex flex-col justify-center gap-1">
-      <p className="text-2xl p-1">
-        Do you attend any of the following school communities/Personality?
-      </p>
+      <p className="text-2xl p-1">Which of these match your vibe?</p>
       {PERSONALITY_TRAITS.map((personality) => (
         <div key={personality.id} className="flex gap-2 hover:text-blue-500 ">
           <input

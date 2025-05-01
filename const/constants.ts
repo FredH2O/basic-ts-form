@@ -1,31 +1,31 @@
 export const PERSONALITY_TRAITS = [
   {
-    name: "Introverted 🌙",
-    id: "introverted",
-    value: "introverted",
+    name: "Introvert - Prefers quiet and solitude 🌙.",
+    id: "introvert",
+    value: "introvert",
   },
   {
-    name: "Extroverted 🌟",
-    id: "extroverted",
-    value: "extroverted",
+    name: "Extrovert - Energized by social settings 🌟.",
+    id: "extrovert",
+    value: "extrovert",
   },
   {
-    name: "Creative 🎨",
+    name: "Creative - Thinks outside the box 🎨.",
     id: "creative",
     value: "creative",
   },
   {
-    name: "Analytical 🧠",
+    name: "Analytical - Loves logic and structure 🧠.",
     id: "analytical",
     value: "analytical",
   },
   {
-    name: "Empathetic 💖",
+    name: "Empathetic - Deeply feels for others 💖.",
     id: "empathetic",
     value: "empathetic",
   },
   {
-    name: "Adventurous 🌍",
+    name: "Adventurous - Embraces new experiences 🌍.",
     id: "adventurous",
     value: "adventurous",
   },
@@ -33,27 +33,27 @@ export const PERSONALITY_TRAITS = [
 
 export const RELAX = [
   {
-    title: "Read a book",
+    title: "Read a book 📕",
     value: "reading",
     key: 1,
   },
   {
-    title: "Go for a run or do yoga",
+    title: "Go for a run or do yoga 🏃🏻‍➡️",
     value: "exercise",
     key: 2,
   },
   {
-    title: "Movie or Series watching",
+    title: "Movie or Series watching 🎞️",
     value: "tv",
     key: 3,
   },
   {
-    title: "Spend time with people",
+    title: "Spend time with people 🫂",
     value: "socializing",
     key: 4,
   },
   {
-    title: "Play video games",
+    title: "Play video games 🎮",
     value: "games",
     key: 5,
   },

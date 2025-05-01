@@ -1,7 +1,6 @@
 "use client";
 import FormSection from "../../components/FormSection";
 import { useFormContext } from "../context/FormContext";
-import Input from "../../components/Input";
 import RechargeQuestion from "../../components/Lifestyle/RechargeQuestion";
 
 const Page2 = () => {

@@ -10,7 +10,7 @@ type Prop = {
 const RechargeQuestion = ({ onChange }: Prop) => {
   return (
     <RadioQuestionsBox title="After a tiring day which do you do the most?">
-      <div className="flex flex-col p-1">
+      <div className="flex flex-col space-y-1">
         {RELAX.map((answer) => (
           <label key={answer.key} htmlFor={answer.value}>
             <Input
