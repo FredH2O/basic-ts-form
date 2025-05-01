@@ -9,7 +9,7 @@ type Props = {
 
 const DescriptionQuestion = ({ onChange }: Props) => {
   return (
-    <RadioQuestionsBox title="How do describe yourself?">
+    <RadioQuestionsBox title="How do you describe yourself?">
       <div className="flex flex-col space-y-1">
         {DESCRIPTION.map((answer) => (
           <label htmlFor={answer.value} key={answer.key}>
