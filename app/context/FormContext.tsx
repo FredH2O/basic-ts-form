@@ -35,6 +35,7 @@ const score = {
   adventurer: 0,
   peacemaker: 0,
   leader: 0,
+  mixed: 0,
 };
 
 // const updateScore = (personality: string) => {

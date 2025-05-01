@@ -9,19 +9,19 @@ type Props = {
 const Personality = ({ onChange }: Props) => {
   return (
     <div className="flex flex-col justify-center gap-1">
-      <p className="text-2xl p-1">Which type of friend do you prefer?</p>
+      <p className="text-2xl p-1">What type of friend do you prefer?</p>
       {PERSONALITY_TRAITS.map((personality) => (
         <div key={personality.id} className="flex gap-2 hover:text-blue-500 ">
           <Input
             onChange={onChange}
             className="hover:cursor-pointer"
             type="radio"
-            id={personality.name}
+            id={personality.title}
             name="personality"
             value={personality.value}
           />
-          <label className="hover:cursor-pointer" htmlFor={personality.name}>
-            {personality.name}
+          <label className="hover:cursor-pointer" htmlFor={personality.title}>
+            {personality.title}
           </label>
         </div>
       ))}

@@ -1,9 +1,8 @@
 "use client";
 import { useFormContext } from "../app/context/FormContext";
-import PersonalityQuestion from "./Identity/PersonalityQuestion";
-import DescriptionQuestion from "./Identity/DescriptionQuestion";
-import ChallangesQuestion from "./Identity/ChallengesQuestion";
-import NameQuestion from "./Identity/NameQuestion";
+import DescriptionQuestion from "./Questions_1/DescriptionQuestion";
+import ChallangesQuestion from "./Questions_1/ChallengesQuestion";
+import NameQuestion from "./Questions_1/NameQuestion";
 import FormSection from "./FormSection";
 
 const Form = () => {
@@ -30,8 +29,6 @@ const Form = () => {
         challenges={submitQuestion.challenges}
         otherAnswer={otherAnswer}
       />
-      {/* PersonalityQuestion */}
-      <PersonalityQuestion onChange={handleChange} />
     </FormSection>
   );
 };

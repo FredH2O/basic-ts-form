@@ -1,41 +1,41 @@
 export const PERSONALITY_TRAITS = [
   {
-    name: "A quiet, thoughtful friend 🌙",
+    title: "A quiet, thoughtful friend 🌙",
     id: "introvert",
     value: "introvert",
   },
   {
-    name: "A fun, outgoing friend 🌟",
+    title: "A fun, outgoing friend 🌟",
     id: "extrovert",
     value: "extrovert",
   },
   {
-    name: "A positive, sunny friend 🌞",
+    title: "A positive, sunny friend 🌞",
     id: "optimist",
     value: "optimist",
   },
   {
-    name: "An honest, grounded friend 🌧️",
+    title: "An honest, grounded friend 🌧️",
     id: "pessimist",
     value: "pessimist",
   },
   {
-    name: "A careful, detail-loving friend 📋",
+    title: "A careful, detail-loving friend 📋",
     id: "perfectionist",
     value: "perfectionist",
   },
   {
-    name: "An adventurous, spontaneous friend 🌍",
+    title: "An adventurous, spontaneous friend 🌍",
     id: "adventurer",
     value: "adventurer",
   },
   {
-    name: "A calm, peaceful friend ☮️",
+    title: "A calm, peaceful friend ☮️",
     id: "peacemaker",
     value: "peacemaker",
   },
   {
-    name: "A bold, take-charge friend 🦸‍♂️",
+    title: "A bold, take-charge friend 🦸‍♂️",
     id: "leader",
     value: "leader",
   },
@@ -69,26 +69,60 @@ export const RELAX = [
   },
 ] as const;
 
-export const DESCRIPTION = [
+export const DESCRIBE_YOURSELF = [
   {
-    title: "Chill and Quiet 🌿",
-    value: "chill",
+    title: "A quiet, thoughtful friend 🌙",
+    id: "introvert",
+    value: "introvert",
     key: 1,
   },
   {
-    title: "Outgoing and Talkative 🔥",
-    value: "outgoing",
+    title: "A fun, outgoing friend 🌟",
+    id: "extrovert",
+    value: "extrovert",
     key: 2,
   },
   {
-    title: "Chill and Outgoing 🗻",
-    value: "both",
+    title: "A positive, sunny friend 🌞",
+    id: "optimist",
+    value: "optimist",
     key: 3,
   },
   {
-    title: "Not Sure 🤔",
-    value: "not sure",
+    title: "An honest, grounded friend 🌧️",
+    id: "pessimist",
+    value: "pessimist",
     key: 4,
+  },
+  {
+    title: "A careful, detail-loving friend 📋",
+    id: "perfectionist",
+    value: "perfectionist",
+    key: 5,
+  },
+  {
+    title: "An adventurous, spontaneous friend 🌍",
+    id: "adventurer",
+    value: "adventurer",
+    key: 6,
+  },
+  {
+    title: "A calm, peaceful friend ☮️",
+    id: "peacemaker",
+    value: "peacemaker",
+    key: 7,
+  },
+  {
+    title: "A bold, take-charge friend 🦸‍♂️",
+    id: "leader",
+    value: "leader",
+    key: 8,
+  },
+  {
+    title: "A mix of many things 🌈",
+    id: "mixed",
+    value: "mixed",
+    key: 9,
   },
 ] as const;
 

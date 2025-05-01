@@ -1,7 +1,7 @@
 import { type ChangeEvent } from "react";
 import Input from "../Input";
 import RadioQuestionsBox from "../RadioQuestionsBox";
-import { DESCRIPTION } from "../../const/constants";
+import { DESCRIBE_YOURSELF } from "../../const/constants";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -11,7 +11,7 @@ const DescriptionQuestion = ({ onChange }: Props) => {
   return (
     <RadioQuestionsBox title="How do you describe yourself?">
       <div className="flex flex-col space-y-1">
-        {DESCRIPTION.map((answer) => (
+        {DESCRIBE_YOURSELF.map((answer) => (
           <label htmlFor={answer.value} key={answer.key}>
             <Input
               type="radio"
