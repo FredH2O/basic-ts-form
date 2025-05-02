@@ -13,7 +13,7 @@ const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
       <label htmlFor="challanges" className="text-2xl">
-        How do you typically handle challanges?
+        How would you handle challanges?
       </label>
       <select
         name="challenges"

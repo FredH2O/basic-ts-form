@@ -1,6 +1,7 @@
 import { PERSONALITY_TRAITS } from "../../const/constants";
 import type { ChangeEvent } from "react";
 import Input from "../Input";
+import RadioQuestionsBox from "../RadioQuestionsBox";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -8,8 +9,7 @@ type Props = {
 
 const Personality = ({ onChange }: Props) => {
   return (
-    <div className="flex flex-col justify-center gap-1">
-      <p className="text-2xl p-1">What type of friend do you prefer?</p>
+    <RadioQuestionsBox title="What type of friend do you prefer?">
       {PERSONALITY_TRAITS.map((personality) => (
         <div key={personality.id} className="flex gap-2 hover:text-blue-500 ">
           <Input
@@ -25,7 +25,7 @@ const Personality = ({ onChange }: Props) => {
           </label>
         </div>
       ))}
-    </div>
+    </RadioQuestionsBox>
   );
 };
 

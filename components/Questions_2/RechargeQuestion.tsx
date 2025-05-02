@@ -10,19 +10,24 @@ type Prop = {
 const RechargeQuestion = ({ onChange }: Prop) => {
   return (
     <RadioQuestionsBox title="After a tiring day which do you do the most?">
-      <div className="flex flex-col space-y-1">
-        {RELAX.map((answer) => (
-          <label key={answer.key} htmlFor={answer.value}>
-            <Input
-              type="radio"
-              name="recharge"
-              onChange={onChange}
-              id={answer.value}
-            />
-            <span>{answer.title}</span>
+      {RELAX.map((answer) => (
+        <div
+          key={answer.key}
+          className="flex gap-2 items-center hover:text-blue-500"
+        >
+          <Input
+            type="radio"
+            name="recharge"
+            onChange={onChange}
+            id={answer.value}
+            value={answer.value} // Add value!
+            className="hover:cursor-pointer"
+          />
+          <label htmlFor={answer.value} className="hover:cursor-pointer">
+            {answer.title}
           </label>
-        ))}
-      </div>
+        </div>
+      ))}
     </RadioQuestionsBox>
   );
 };
