@@ -7,7 +7,7 @@ type QuestionOptions = {
 };
 
 type QuestionsProp = {
-  questions: QuestionOptions[];
+  questions: ReadonlyArray<QuestionOptions>;
   title: string;
   name: string;
   id: string;

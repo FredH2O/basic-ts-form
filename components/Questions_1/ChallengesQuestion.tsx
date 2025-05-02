@@ -13,7 +13,15 @@ type Props = {
 const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
-      <label htmlFor="challanges" className="text-2xl">
+      <SelectQuestionBox
+        title="How would you handle challanges?"
+        name="challanges"
+        id="challanges"
+        onChange={onChange}
+        value={challenges}
+        questions={CHALLENGES}
+      />
+      {/* <label htmlFor="challanges" className="text-2xl">
         How would you handle challanges?
       </label>
       <select
@@ -32,7 +40,7 @@ const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
             {answer.title}
           </option>
         ))}
-      </select>
+      </select> */}
 
       {otherAnswer && (
         <Input
