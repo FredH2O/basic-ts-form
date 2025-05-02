@@ -13,34 +13,15 @@ type Props = {
 const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
+      {/* component select */}
       <SelectQuestionBox
         title="How would you handle challanges?"
-        name="challanges"
+        name="challenges"
         id="challanges"
         onChange={onChange}
         value={challenges}
         questions={CHALLENGES}
       />
-      {/* <label htmlFor="challanges" className="text-2xl">
-        How would you handle challanges?
-      </label>
-      <select
-        name="challenges"
-        id="challanges"
-        className="rounded text-black bg-white p-1"
-        onChange={onChange}
-        value={challenges}
-      >
-        {CHALLENGES.map((answer) => (
-          <option
-            disabled={answer.value === ""}
-            key={answer.key}
-            value={answer.value}
-          >
-            {answer.title}
-          </option>
-        ))}
-      </select> */}
 
       {otherAnswer && (
         <Input
