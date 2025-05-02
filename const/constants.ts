@@ -41,30 +41,30 @@ export const PERSONALITY_TRAITS = [
   },
 ] as const;
 
-export const RELAX = [
+export const TIRING_DAY = [
   {
     title: "Read a book 📕",
-    value: "reading",
+    value: "introvert+peacemaker",
     key: 1,
   },
   {
     title: "Go for a run or do yoga 🏃🏻‍➡️",
-    value: "exercise",
+    value: "adventurer+peacemaker",
     key: 2,
   },
   {
     title: "Movie or Series watching 🎞️",
-    value: "tv",
+    value: "peacemaker+introvert",
     key: 3,
   },
   {
     title: "Spend time with people 🫂",
-    value: "socializing",
+    value: "extrovert+leader",
     key: 4,
   },
   {
     title: "Play video games 🎮",
-    value: "games",
+    value: "mixed+introvert",
     key: 5,
   },
 ] as const;
@@ -180,4 +180,4 @@ export const CHALLENGES = [
 ] as const;
 
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
-export type Answer = (typeof RELAX)[number]["value"];
+export type Answer = (typeof TIRING_DAY)[number]["value"];

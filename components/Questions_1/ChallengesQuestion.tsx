@@ -2,6 +2,7 @@ import { type ChangeEvent } from "react";
 import { FormValues } from "../../app/context/FormContext";
 import Input from "../Input";
 import { CHALLENGES } from "../../const/constants";
+import SelectQuestionBox from "../SelectQuestionBox";
 
 type Props = {
   onChange: (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;

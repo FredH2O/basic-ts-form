@@ -1,6 +1,6 @@
 import Input from "../Input";
 import RadioQuestionsBox from "../RadioQuestionsBox";
-import { RELAX } from "../../const/constants";
+import { TIRING_DAY } from "../../const/constants";
 import { ChangeEvent } from "react";
 
 type Prop = {
@@ -9,8 +9,8 @@ type Prop = {
 
 const RechargeQuestion = ({ onChange }: Prop) => {
   return (
-    <RadioQuestionsBox title="After a tiring day which do you do the most?">
-      {RELAX.map((answer) => (
+    <RadioQuestionsBox title="Tiring day which do you do the most?">
+      {TIRING_DAY.map((answer) => (
         <div
           key={answer.key}
           className="flex gap-2 items-center hover:text-blue-500"
