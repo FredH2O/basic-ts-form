@@ -26,7 +26,7 @@ const Form = () => {
       {/* transportation */}
       <ChallangesQuestion
         onChange={handleChange}
-        challenges={submitQuestion.challenges}
+        value={submitQuestion.challenges}
         otherAnswer={otherAnswer}
       />
     </FormSection>

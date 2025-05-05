@@ -37,6 +37,7 @@ const SelectQuestionBox = ({
       >
         {questions.map((question) => (
           <option
+            hidden={question.value === ""}
             disabled={question.value === ""}
             key={question.key}
             value={question.value}

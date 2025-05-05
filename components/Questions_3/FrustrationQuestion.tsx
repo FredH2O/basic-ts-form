@@ -4,11 +4,11 @@ import { ChangeEvent } from "react";
 import { FormValues } from "../../app/context/FormContext";
 
 type Props = {
-  frustration: FormValues["frustration"];
+  value: FormValues["frustration"];
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const FrustrationQuestion = ({ onChange, frustration }: Props) => {
+const FrustrationQuestion = ({ onChange, value }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
       <SelectQuestionBox
@@ -16,7 +16,7 @@ const FrustrationQuestion = ({ onChange, frustration }: Props) => {
         name="frustration"
         id="frustration"
         onChange={onChange}
-        value={frustration}
+        value={value}
         questions={FRUSTRATION_QUESTION}
       />
     </div>

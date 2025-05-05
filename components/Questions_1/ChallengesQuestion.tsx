@@ -7,19 +7,19 @@ import SelectQuestionBox from "../SelectQuestionBox";
 type Props = {
   onChange: (e: ChangeEvent<HTMLSelectElement | HTMLInputElement>) => void;
   otherAnswer: boolean;
-  challenges: FormValues["challenges"];
+  value: FormValues["challenges"];
 };
 
-const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
+const ChallangesQuestion = ({ onChange, otherAnswer, value }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
       {/* component select */}
       <SelectQuestionBox
         title="How would you handle challanges?"
         name="challenges"
-        id="challanges"
+        id="challenges"
         onChange={onChange}
-        value={challenges}
+        value={value}
         questions={CHALLENGES}
       />
 
@@ -30,7 +30,7 @@ const ChallangesQuestion = ({ onChange, otherAnswer, challenges }: Props) => {
           type="text"
           placeholder="What other could it be? 🤔"
           onChange={onChange}
-          value={challenges}
+          value={value}
         />
       )}
     </div>

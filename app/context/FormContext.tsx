@@ -70,6 +70,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    console.log(`The name is this ${name} + and the value is ${value}`);
 
     if (name === "challenges") {
       setOtherAnswer(value === "other");
