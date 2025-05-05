@@ -1,7 +1,7 @@
 "use client";
 import { useFormContext } from "../app/context/FormContext";
 import DescriptionQuestion from "./Questions_1/DescriptionQuestion";
-import ChallangesQuestion from "./Questions_1/ChallengesQuestion";
+import ChallangesQuestion from "./Questions_3/ChallengesQuestion";
 import NameQuestion from "./Questions_1/NameQuestion";
 import FormSection from "./FormSection";
 
@@ -17,18 +17,8 @@ const Form = () => {
 
   return (
     <FormSection onSubmit={handleSubmit} next="/Page2">
-      {/* name */}
       <NameQuestion onChange={handleChange} name={submitQuestion.name} />
-
-      {/* student */}
       <DescriptionQuestion onChange={handleChange} />
-
-      {/* transportation */}
-      <ChallangesQuestion
-        onChange={handleChange}
-        value={submitQuestion.challenges}
-        otherAnswer={otherAnswer}
-      />
     </FormSection>
   );
 };

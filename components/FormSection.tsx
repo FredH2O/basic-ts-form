@@ -27,6 +27,7 @@ const FormSection = ({
             {children}
           </div>
         </fieldset>
+
         <div
           className={`flex ${
             previous ? "justify-between" : "justify-center"

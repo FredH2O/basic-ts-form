@@ -12,7 +12,7 @@ const FrustrationQuestion = ({ onChange, value }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
       <SelectQuestionBox
-        title="When things don’t go your way, what’s your first instinct?"
+        title="When things don't go your way, what's your first instinct?"
         name="frustration"
         id="frustration"
         onChange={onChange}

@@ -180,56 +180,16 @@ export const CHALLENGES = [
 ] as const;
 
 export const FRUSTRATION_QUESTION = [
-  {
-    title: "-- Select --",
-    value: "",
-    key: 0,
-  },
-  {
-    title: "Do it myself, not ask anyone for help.",
-    value: "introvert",
-    key: 1,
-  },
-  {
-    title: "Talk to someone — I need to vent or get advice.",
-    value: "extrovert",
-    key: 2,
-  },
-  {
-    title: "Laugh it off. No big deal — I’ll try again.",
-    value: "optimist",
-    key: 3,
-  },
-  {
-    title: "Of course this happened... things always go wrong.",
-    value: "pessimist",
-    key: 4,
-  },
-  {
-    title: "I can’t move on until I fix every detail.",
-    value: "perfectionist",
-    key: 5,
-  },
-  {
-    title: "Let’s change the plan and try something new!",
-    value: "adventurer",
-    key: 6,
-  },
-  {
-    title: "It’s okay — I’ll adapt so no one gets upset.",
-    value: "peacemaker",
-    key: 7,
-  },
-  {
-    title: "Take charge — I’ll make a new plan and lead the way.",
-    value: "leader",
-    key: 8,
-  },
-  {
-    title: "Depends on the day — sometimes I fight, sometimes I freeze.",
-    value: "mixed",
-    key: 9,
-  },
+  { title: "-- Select --", value: "", key: 0 },
+  { title: "Handle it myself.", value: "introvert", key: 1 },
+  { title: "Talk it out.", value: "extrovert", key: 2 },
+  { title: "Laugh it off.", value: "optimist", key: 3 },
+  { title: "Nothing ever works...", value: "pessimist", key: 4 },
+  { title: "Fix every detail.", value: "perfectionist", key: 5 },
+  { title: "Try a new way!", value: "adventurer", key: 6 },
+  { title: "Keep the peace.", value: "peacemaker", key: 7 },
+  { title: "Take the lead.", value: "leader", key: 8 },
+  { title: "It depends on the day.", value: "mixed", key: 9 },
 ] as const;
 
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
