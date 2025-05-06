@@ -16,11 +16,11 @@ const Personality = ({ onChange }: Props) => {
             onChange={onChange}
             className="hover:cursor-pointer"
             type="radio"
-            id={personality.title}
+            id={personality.value}
             name="personality"
             value={personality.value}
           />
-          <label htmlFor={personality.title} className="hover:cursor-pointer">
+          <label htmlFor={personality.value} className="hover:cursor-pointer">
             {personality.title}
           </label>
         </div>

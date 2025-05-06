@@ -20,7 +20,7 @@ const RechargeQuestion = ({ onChange }: Prop) => {
             name="recharge"
             onChange={onChange}
             id={answer.value}
-            value={answer.value} // Add value!
+            value={answer.value}
             className="hover:cursor-pointer"
           />
           <label htmlFor={answer.value} className="hover:cursor-pointer">
