@@ -15,6 +15,7 @@ export type FormValues = {
   personality: string;
   frustration: string;
   approach: string;
+  recharge: string;
 };
 
 type FormContextType = {
@@ -64,6 +65,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     personality: "",
     frustration: "",
     approach: "",
+    recharge: "",
   });
 
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
@@ -114,6 +116,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       personality: "",
       frustration: "",
       approach: "",
+      recharge: "",
     });
 
     setOtherAnswer(false);

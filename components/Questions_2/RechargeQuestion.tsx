@@ -11,11 +11,11 @@ const RechargeQuestion = () => {
           className="flex gap-2 items-center hover:text-blue-500"
         >
           <Input
+            className="hover:cursor-pointer"
             type="radio"
             name="recharge"
             id={answer.value}
             value={answer.value}
-            className="hover:cursor-pointer"
           />
           <label htmlFor={answer.value} className="hover:cursor-pointer">
             {answer.title}

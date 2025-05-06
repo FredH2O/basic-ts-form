@@ -1,27 +1,55 @@
 export const DESCRIBE_YOURSELF = [
   {
     title: "I’m quietly driven 🌙🦸‍♂️",
-    value: "introvert-leader",
+    value: "desc-introvert-leader",
     key: 1,
   },
   {
     title: "I’m warm and welcoming 🌟☮️",
-    value: "extrovert-peacemaker",
+    value: "desc-extrovert-peacemaker",
     key: 2,
   },
   {
     title: "I’m upbeat but focused 🌞📋",
-    value: "optimist-perfectionist",
+    value: "desc-optimist-perfectionist",
     key: 3,
   },
   {
     title: "I’m grounded yet curious 🌧️🌍",
-    value: "pessimist-adventurer",
+    value: "desc-pessimist-adventurer",
     key: 4,
   },
   {
     title: "I’m a mix of many things 🌈",
-    value: "mixed",
+    value: "desc-mixed",
+    key: 5,
+  },
+] as const;
+
+export const PERSONALITY_TRAITS = [
+  {
+    title: "Quiet but confident 🌙🦸‍♂️",
+    value: "pers-introvert-leader",
+    key: 1,
+  },
+  {
+    title: "Lively and peaceful 🌟☮️",
+    value: "pers-extrovert-peacemaker",
+    key: 2,
+  },
+  {
+    title: "Cheerful and precise 🌞📋",
+    value: "pers-optimist-perfectionist",
+    key: 3,
+  },
+  {
+    title: "Realistic and adventurous 🌧️🌍",
+    value: "pers-pessimist-adventurer",
+    key: 4,
+  },
+  {
+    title: "Bold and balanced 🦸‍♂️☮️",
+    value: "pers-leader-peacemaker",
     key: 5,
   },
 ] as const;
@@ -50,36 +78,6 @@ export const TIRING_DAY = [
   {
     title: "Play video games 🎮",
     value: "mixed-introvert",
-    key: 5,
-  },
-] as const;
-
-export const PERSONALITY_TRAITS = [
-  {
-    title: "Quiet but confident 🌙🦸‍♂️",
-
-    value: "introvert-leader",
-    key: 1,
-  },
-  {
-    title: "Lively and peaceful 🌟☮️",
-
-    value: "extrovert-peacemaker",
-    key: 2,
-  },
-  {
-    title: "Cheerful and precise 🌞📋",
-    value: "optimist-perfectionist",
-    key: 3,
-  },
-  {
-    title: "Realistic and adventurous 🌧️🌍",
-    value: "pessimist-adventurer",
-    key: 4,
-  },
-  {
-    title: "Bold and balanced 🦸‍♂️☮️",
-    value: "leader-peacemaker",
     key: 5,
   },
 ] as const;

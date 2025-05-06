@@ -2,7 +2,7 @@
 import FormSection from "../../components/FormSection";
 import { useFormContext } from "../context/FormContext";
 import RechargeQuestion from "../../components/Questions_2/RechargeQuestion";
-import Personality from "../../components/Questions_2/PersonalityQuestion";
+import Personality from "../../components/Questions_2/FriendQuestion";
 import DescriptionQuestion from "../../components/Questions_2/DescriptionQuestion";
 
 const Page2 = () => {
