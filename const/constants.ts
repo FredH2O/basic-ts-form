@@ -181,15 +181,15 @@ export const CHALLENGES = [
 
 export const FRUSTRATION_QUESTION = [
   { title: "-- Select --", value: "", key: 0 },
-  { title: "Handle it myself.", value: "introvert", key: 1 },
-  { title: "Talk it out.", value: "extrovert", key: 2 },
-  { title: "Laugh it off.", value: "optimist", key: 3 },
-  { title: "Nothing ever works...", value: "pessimist", key: 4 },
-  { title: "Fix every detail.", value: "perfectionist", key: 5 },
-  { title: "Try a new way!", value: "adventurer", key: 6 },
-  { title: "Keep the peace.", value: "peacemaker", key: 7 },
-  { title: "Take the lead.", value: "leader", key: 8 },
-  { title: "It depends on the day.", value: "mixed", key: 9 },
+  { title: "🛠️ Handle it myself.", value: "introvert", key: 1 },
+  { title: "🗣️ Talk it out.", value: "extrovert", key: 2 },
+  { title: "😂 Laugh it off.", value: "optimist", key: 3 },
+  { title: "😞 Nothing ever works...", value: "pessimist", key: 4 },
+  { title: "🔧 Fix every detail.", value: "perfectionist", key: 5 },
+  { title: "🧭 Try a new way!", value: "adventurer", key: 6 },
+  { title: "🕊️ Keep the peace.", value: "peacemaker", key: 7 },
+  { title: "👑 Take the lead.", value: "leader", key: 8 },
+  { title: "🌦️ It depends on the day.", value: "mixed", key: 9 },
 ] as const;
 
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
