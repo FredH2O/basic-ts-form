@@ -10,20 +10,20 @@ type Props = {
 const DescriptionQuestion = ({ onChange }: Props) => {
   return (
     <RadioQuestionsBox title="Describe yourself?">
-      <div className="flex flex-col space-y-1">
-        {DESCRIBE_YOURSELF.map((answer) => (
-          <label htmlFor={answer.value} key={answer.key}>
-            <Input
-              type="radio"
-              id={answer.value}
-              name="description"
-              value={answer.value}
-              onChange={onChange}
-            />
-            <span>{answer.title}</span>
+      {DESCRIBE_YOURSELF.map((answer) => (
+        <div key={answer.key} className="flex gap-2 hover:text-blue-500 ">
+          <Input
+            type="radio"
+            id={answer.value}
+            name="description"
+            value={answer.value}
+            onChange={onChange}
+          />
+          <label htmlFor={answer.value} className="hover:cursor-pointer">
+            {answer.title}
           </label>
-        ))}
-      </div>
+        </div>
+      ))}
     </RadioQuestionsBox>
   );
 };

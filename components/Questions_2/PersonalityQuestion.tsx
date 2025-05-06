@@ -11,7 +11,7 @@ const Personality = ({ onChange }: Props) => {
   return (
     <RadioQuestionsBox title="What type of friend do you prefer?">
       {PERSONALITY_TRAITS.map((personality) => (
-        <div key={personality.id} className="flex gap-2 hover:text-blue-500 ">
+        <div key={personality.key} className="flex gap-2 hover:text-blue-500 ">
           <Input
             onChange={onChange}
             className="hover:cursor-pointer"
@@ -20,7 +20,7 @@ const Personality = ({ onChange }: Props) => {
             name="personality"
             value={personality.value}
           />
-          <label className="hover:cursor-pointer" htmlFor={personality.title}>
+          <label htmlFor={personality.title} className="hover:cursor-pointer">
             {personality.title}
           </label>
         </div>

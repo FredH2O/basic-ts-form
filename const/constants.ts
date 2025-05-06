@@ -1,128 +1,86 @@
-export const PERSONALITY_TRAITS = [
+export const DESCRIBE_YOURSELF = [
   {
-    title: "A quiet, thoughtful friend 🌙",
-    id: "introvert",
-    value: "introvert",
+    title: "I’m quietly driven 🌙🦸‍♂️",
+    value: "introvert-leader",
+    key: 1,
   },
   {
-    title: "A fun, outgoing friend 🌟",
-    id: "extrovert",
-    value: "extrovert",
+    title: "I’m warm and welcoming 🌟☮️",
+    value: "extrovert-peacemaker",
+    key: 2,
   },
   {
-    title: "A positive, sunny friend 🌞",
-    id: "optimist",
-    value: "optimist",
+    title: "I’m upbeat but focused 🌞📋",
+    value: "optimist-perfectionist",
+    key: 3,
   },
   {
-    title: "An honest, grounded friend 🌧️",
-    id: "pessimist",
-    value: "pessimist",
+    title: "I’m grounded yet curious 🌧️🌍",
+    value: "pessimist-adventurer",
+    key: 4,
   },
   {
-    title: "A careful, detail-loving friend 📋",
-    id: "perfectionist",
-    value: "perfectionist",
-  },
-  {
-    title: "An adventurous, spontaneous friend 🌍",
-    id: "adventurer",
-    value: "adventurer",
-  },
-  {
-    title: "A calm, peaceful friend ☮️",
-    id: "peacemaker",
-    value: "peacemaker",
-  },
-  {
-    title: "A bold, take-charge friend 🦸‍♂️",
-    id: "leader",
-    value: "leader",
+    title: "I’m a mix of many things 🌈",
+    value: "mixed",
+    key: 5,
   },
 ] as const;
 
 export const TIRING_DAY = [
   {
     title: "Read a book 📕",
-    value: "introvert+peacemaker",
+    value: "introvert-peacemaker",
     key: 1,
   },
   {
     title: "Go for a run or do yoga 🏃🏻‍➡️",
-    value: "adventurer+peacemaker",
+    value: "adventurer-peacemaker",
     key: 2,
   },
   {
     title: "Movie or Series watching 🎞️",
-    value: "peacemaker+introvert",
+    value: "peacemaker-introvert",
     key: 3,
   },
   {
     title: "Spend time with people 🫂",
-    value: "extrovert+leader",
+    value: "extrovert-leader",
     key: 4,
   },
   {
     title: "Play video games 🎮",
-    value: "mixed+introvert",
+    value: "mixed-introvert",
     key: 5,
   },
 ] as const;
 
-export const DESCRIBE_YOURSELF = [
+export const PERSONALITY_TRAITS = [
   {
-    title: "A quiet, thoughtful friend 🌙",
-    id: "introvert",
-    value: "introvert",
+    title: "Quiet but confident 🌙🦸‍♂️",
+
+    value: "introvert-leader",
     key: 1,
   },
   {
-    title: "A fun, outgoing friend 🌟",
-    id: "extrovert",
-    value: "extrovert",
+    title: "Lively and peaceful 🌟☮️",
+
+    value: "extrovert-peacemaker",
     key: 2,
   },
   {
-    title: "A positive, sunny friend 🌞",
-    id: "optimist",
-    value: "optimist",
+    title: "Cheerful and precise 🌞📋",
+    value: "optimist-perfectionist",
     key: 3,
   },
   {
-    title: "An honest, grounded friend 🌧️",
-    id: "pessimist",
-    value: "pessimist",
+    title: "Realistic and adventurous 🌧️🌍",
+    value: "pessimist-adventurer",
     key: 4,
   },
   {
-    title: "A careful, detail-loving friend 📋",
-    id: "perfectionist",
-    value: "perfectionist",
+    title: "Bold and balanced 🦸‍♂️☮️",
+    value: "leader-peacemaker",
     key: 5,
-  },
-  {
-    title: "An adventurous, spontaneous friend 🌍",
-    id: "adventurer",
-    value: "adventurer",
-    key: 6,
-  },
-  {
-    title: "A calm, peaceful friend ☮️",
-    id: "peacemaker",
-    value: "peacemaker",
-    key: 7,
-  },
-  {
-    title: "A bold, take-charge friend 🦸‍♂️",
-    id: "leader",
-    value: "leader",
-    key: 8,
-  },
-  {
-    title: "A mix of many things 🌈",
-    id: "mixed",
-    value: "mixed",
-    key: 9,
   },
 ] as const;
 
