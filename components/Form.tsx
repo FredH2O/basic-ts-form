@@ -17,7 +17,7 @@ const Form = () => {
 
   return (
     <FormSection onSubmit={handleSubmit} next="/Page2">
-      <NameQuestion onChange={handleChange} name={submitQuestion.name} />
+      <NameQuestion name={submitQuestion.name} />
     </FormSection>
   );
 };

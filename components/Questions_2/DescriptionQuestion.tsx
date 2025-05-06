@@ -3,11 +3,7 @@ import Input from "../Input";
 import RadioQuestionsBox from "../RadioQuestionsBox";
 import { DESCRIBE_YOURSELF } from "../../const/constants";
 
-type Props = {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-};
-
-const DescriptionQuestion = ({ onChange }: Props) => {
+const DescriptionQuestion = () => {
   return (
     <RadioQuestionsBox title="Describe yourself?">
       {DESCRIBE_YOURSELF.map((answer) => (
@@ -17,7 +13,6 @@ const DescriptionQuestion = ({ onChange }: Props) => {
             id={answer.value}
             name="description"
             value={answer.value}
-            onChange={onChange}
           />
           <label htmlFor={answer.value} className="hover:cursor-pointer">
             {answer.title}

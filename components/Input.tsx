@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         {...props}
-        className={`border m-1 p-2 bg-white rounded text-black ${props.className}`}
+        className={`border m-1 p-2 text-2xl font-light bg-white rounded text-black ${props.className}`}
         ref={ref}
         name={name}
         onChange={handleCombineChanges}

@@ -9,9 +9,9 @@ const Page2 = () => {
   const { handleSubmit, submitQuestion, handleChange } = useFormContext();
   return (
     <FormSection onSubmit={handleSubmit} next="/Page3" previous="/">
-      <DescriptionQuestion onChange={handleChange} />
-      <RechargeQuestion onChange={handleChange} />
-      <Personality onChange={handleChange} />
+      <DescriptionQuestion />
+      <RechargeQuestion />
+      <Personality />
     </FormSection>
   );
 };

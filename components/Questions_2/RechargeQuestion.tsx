@@ -1,13 +1,8 @@
 import Input from "../Input";
 import RadioQuestionsBox from "../RadioQuestionsBox";
 import { TIRING_DAY } from "../../const/constants";
-import { ChangeEvent } from "react";
 
-type Prop = {
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-};
-
-const RechargeQuestion = ({ onChange }: Prop) => {
+const RechargeQuestion = () => {
   return (
     <RadioQuestionsBox title="Tiring day which do you do the most?">
       {TIRING_DAY.map((answer) => (
@@ -18,7 +13,6 @@ const RechargeQuestion = ({ onChange }: Prop) => {
           <Input
             type="radio"
             name="recharge"
-            onChange={onChange}
             id={answer.value}
             value={answer.value}
             className="hover:cursor-pointer"

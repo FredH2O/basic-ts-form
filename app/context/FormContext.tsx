@@ -72,7 +72,14 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    console.log(`The name is this ${name} + and the value is ${value}`);
+    console.log(`Your on ${name} + and the value is ${value}`);
+
+    // if (name === "name") {
+    //   setSubmitQuestion((prev) => ({
+    //     ...prev,
+    //     name: value.toUpperCase().charAt(0),
+    //   }));ss
+    // }
 
     if (name === "challenges") {
       setOtherAnswer(value === "other");
