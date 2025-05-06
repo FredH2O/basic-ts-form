@@ -127,56 +127,24 @@ export const DESCRIBE_YOURSELF = [
 ] as const;
 
 export const CHALLENGES = [
+  { title: "-- Select --", value: "", key: 0 },
   {
-    title: "-- Select --",
-    value: "",
-    key: 0,
-  },
-  {
-    title: "Calm and Reserved 🌿",
+    title: "Handle it quietly and independently 🌿",
     value: "introvert",
     key: 1,
   },
+  { title: "Talk it out and gather support 🔥", value: "extrovert", key: 2 },
+  { title: "Stay positive and hopeful 🌞", value: "optimist", key: 3 },
+  { title: "Plan for what could go wrong 🌧️", value: "pessimist", key: 4 },
   {
-    title: "Outgoing and Social 🔥",
-    value: "extrovert",
-    key: 2,
-  },
-  {
-    title: "Optimistic and Positive 🌞",
-    value: "optimist",
-    key: 3,
-  },
-  {
-    title: "Realistic and Cautious 🌧️",
-    value: "pessimist",
-    key: 4,
-  },
-  {
-    title: "Organized and Detail-Oriented 📋",
+    title: "Focus on fixing every little detail 📋",
     value: "perfectionist",
     key: 5,
   },
-  {
-    title: "Adventurous and Spontaneous 🌍",
-    value: "adventurer",
-    key: 6,
-  },
-  {
-    title: "Peaceful and Harmonious ☮️",
-    value: "peacemaker",
-    key: 7,
-  },
-  {
-    title: "Leader and Decision-Maker 🦸‍♂️",
-    value: "leader",
-    key: 8,
-  },
-  {
-    title: "Other (Please specify) 🤔",
-    value: "other",
-    key: 9,
-  },
+  { title: "Try something bold and untested 🌍", value: "adventurer", key: 6 },
+  { title: "Keep things calm and balanced ☮️", value: "peacemaker", key: 7 },
+  { title: "Step up and take charge 🦸‍♂️", value: "leader", key: 8 },
+  { title: "It depends on the situation 🤔", value: "other", key: 9 },
 ] as const;
 
 export const FRUSTRATION_QUESTION = [
