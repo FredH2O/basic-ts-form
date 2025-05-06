@@ -15,6 +15,7 @@ const FrustrationQuestion = ({ onChange, value }: Props) => {
         title="When things don't go your way, what's your first instinct?"
         name="frustration"
         id="frustration"
+        ariaLabel="Select your approach to 'When things don't go your way'"
         onChange={onChange}
         value={value}
         questions={FRUSTRATION_QUESTION}

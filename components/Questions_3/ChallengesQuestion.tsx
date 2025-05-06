@@ -13,11 +13,11 @@ type Props = {
 const ChallangesQuestion = ({ onChange, otherAnswer, value }: Props) => {
   return (
     <div className="flex flex-col gap-2 p-1">
-      {/* component select */}
       <SelectQuestionBox
         title="How would you handle challanges?"
         name="challenges"
         id="challenges"
+        ariaLabel="Select your approach to challanging question"
         onChange={onChange}
         value={value}
         questions={CHALLENGES}

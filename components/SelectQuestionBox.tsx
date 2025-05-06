@@ -11,6 +11,7 @@ type QuestionsProp = {
   title: string;
   name: string;
   id: string;
+  ariaLabel: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
 };
@@ -20,6 +21,7 @@ const SelectQuestionBox = ({
   title,
   name,
   id,
+  ariaLabel,
   value,
   onChange,
 }: QuestionsProp) => {
@@ -34,6 +36,7 @@ const SelectQuestionBox = ({
         value={value}
         className="rounded text-black bg-white p-1"
         onChange={onChange}
+        aria-label={ariaLabel}
       >
         {questions.map((question) => (
           <option

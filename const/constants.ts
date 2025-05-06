@@ -160,5 +160,42 @@ export const FRUSTRATION_QUESTION = [
   { title: "🌦️ It depends on the day.", value: "mixed", key: 9 },
 ] as const;
 
+export const STARTING_SOMETHING_NEW = [
+  { title: "-- Select --", value: "", key: 0 },
+  {
+    title: "I research quietly before diving in 🌿",
+    value: "introvert",
+    key: 1,
+  },
+  { title: "I ask around and share ideas 🔥", value: "extrovert", key: 2 },
+  { title: "I trust it’ll work out and jump in 🌞", value: "optimist", key: 3 },
+  {
+    title: "I think about what could go wrong first 🌧️",
+    value: "pessimist",
+    key: 4,
+  },
+  {
+    title: "I plan every detail before I begin 📋",
+    value: "perfectionist",
+    key: 5,
+  },
+  {
+    title: "I go with my gut and figure it out on the way 🌍",
+    value: "adventurer",
+    key: 6,
+  },
+  {
+    title: "I find a balanced way that suits everyone ☮️",
+    value: "peacemaker",
+    key: 7,
+  },
+  {
+    title: "I organize people and lead the charge 🦸‍♂️",
+    value: "leader",
+    key: 8,
+  },
+  { title: "It depends on the project 🤔", value: "other", key: 9 },
+] as const;
+
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
 export type Answer = (typeof TIRING_DAY)[number]["value"];
