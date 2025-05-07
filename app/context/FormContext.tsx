@@ -41,11 +41,9 @@ const score = {
   mixed: 0,
 };
 
-// const updateScore = (personality: string) => {
-//   if (score[personality] !== undefined) {
-//     score[personality]++;
-//   }
-// };
+const stripPrefix = (value: string): string => {
+  return value.replace(/^(desc-|pers-)/, "");
+};
 
 const FormContext = createContext<FormContextType | undefined>(undefined);
 
