@@ -29,7 +29,7 @@ type FormContextType = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 };
 
-const score = {
+const initialScore = {
   introvert: 0,
   extrovert: 0,
   optimist: 0,
@@ -66,7 +66,17 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     recharge: "",
   });
 
+  const [score, setScore] = useState(initialScore);
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
+
+  const updateScore = (key: string) => {
+    if (key in score) {
+      setScore((prevScore) => ({
+        ...prevScore,
+        [key]: prevScore[key as keyof typeof score] + 1,
+      }));
+    }
+  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -94,6 +104,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
     if (name === "description" || name === "personality") {
       const cleanedValue = stripPrefix(value);
+      updateScore(cleanedValue);
       setSubmitQuestion((prev) => ({ ...prev, [name]: cleanedValue }));
       return;
     }
@@ -103,10 +114,17 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    alert(JSON.stringify(score, null, 2));
 
-    alert(
-      `Thank you! ${submitQuestion.name}, ${submitQuestion.description}, ${submitQuestion.challenges}, ${submitQuestion.personality}`
-    );
+    // alert(
+    //   `Thank you! ${submitQuestion.name},
+    //   ${submitQuestion.description},
+    //   ${submitQuestion.challenges},
+    //   ${submitQuestion.personality},
+    //   ${submitQuestion.frustration},
+    //   ${submitQuestion.approach},
+    //   ${submitQuestion.recharge}`
+    // );
 
     setSubmitQuestion({
       name: "",
