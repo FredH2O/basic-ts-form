@@ -72,14 +72,9 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    console.log(`Your on ${name} + and the value is ${value}`);
-
-    // if (name === "name") {
-    //   setSubmitQuestion((prev) => ({
-    //     ...prev,
-    //     name: value.toUpperCase().charAt(0),
-    //   }));ss
-    // }
+    console.log(
+      `Your on ${name.toUpperCase()} + and the value is ${value.toUpperCase()}`
+    );
 
     if (name === "challenges") {
       setOtherAnswer(value === "other");
@@ -95,6 +90,12 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
     if (name === "challengesOther") {
       setSubmitQuestion((prev) => ({ ...prev, challenges: value }));
+    }
+
+    if (name === "description" || name === "personality") {
+      const cleanedValue = stripPrefix(value);
+      setSubmitQuestion((prev) => ({ ...prev, [name]: cleanedValue }));
+      return;
     }
 
     setSubmitQuestion((prev) => ({ ...prev, [name]: value }));
