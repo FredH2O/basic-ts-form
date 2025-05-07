@@ -9,7 +9,7 @@ const Page3 = () => {
   const { handleChange, handleSubmit, submitQuestion, otherAnswer } =
     useFormContext();
   return (
-    <FormSection next="/" onSubmit={handleSubmit} previous="/Page2">
+    <FormSection onSubmit={handleSubmit} previous="/Page2">
       <FrustrationQuestion
         onChange={handleChange}
         value={submitQuestion.frustration}

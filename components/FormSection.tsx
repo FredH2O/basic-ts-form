@@ -4,7 +4,7 @@ import { FormEvent, ReactNode } from "react";
 type FormSectionProp = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
   children: ReactNode;
-  next: string;
+  next?: string;
   previous?: string;
 };
 
@@ -33,6 +33,7 @@ const FormSection = ({
             previous ? "justify-between" : "justify-center"
           } items-center p-3 w-full`}
         >
+          {/* Check if previous is truthy */}
           {previous && (
             <Link
               className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
@@ -41,12 +42,24 @@ const FormSection = ({
               Previous Page
             </Link>
           )}
-          <Link
-            className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
-            href={next}
-          >
-            Next Page
-          </Link>
+
+          {/* Check if Next is truthy otherwise output Submit the whole question */}
+
+          {next ? (
+            <Link
+              className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+              href={next}
+            >
+              Next Page
+            </Link>
+          ) : (
+            <button
+              type="submit"
+              className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+            >
+              Submit
+            </button>
+          )}
         </div>
       </form>
     </div>
