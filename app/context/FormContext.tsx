@@ -141,10 +141,26 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     setSubmitQuestion((prev) => ({ ...prev, [name]: value }));
   };
 
+  const getTopTrait = (value: typeof initialScore) => {
+    const entries = Object.entries(value);
+    const sorted = entries.sort((a, b) => b[1] - a[1]);
+    return sorted[0][0];
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(JSON.stringify(score, null, 2));
+    console.log(JSON.stringify(score, null, 2));
 
+    const topTrait = getTopTrait(score);
+
+    switch (topTrait) {
+      case "introvert":
+        alert("You're an introvert bro");
+        break;
+
+      default:
+        break;
+    }
     // alert(
     //   `Thank you! ${submitQuestion.name},
     //   ${submitQuestion.description},
