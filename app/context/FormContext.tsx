@@ -41,10 +41,6 @@ const initialScore = {
   mixed: 0,
 };
 
-const stripPrefix = (value: string): string => {
-  return value.replace(/^(desc-|pers-)/, "");
-};
-
 const FormContext = createContext<FormContextType | undefined>(undefined);
 
 export const useFormContext = () => {
@@ -69,13 +65,24 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const [score, setScore] = useState(initialScore);
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
 
-  const updateScore = (key: string) => {
-    if (key in score) {
-      setScore((prevScore) => ({
-        ...prevScore,
-        [key]: prevScore[key as keyof typeof score] + 1,
-      }));
-    }
+  const stripPrefix = (value: string): string => {
+    return value.replace(/^desc-/, "").replace(/^pers-/, "");
+  };
+
+  const updateScore = (keyString: string) => {
+    const keys = keyString.split("-");
+
+    setScore((prevScore) => {
+      const newScore = { ...prevScore };
+
+      for (const key of keys) {
+        if (key in newScore) {
+          newScore[key as keyof typeof newScore]++;
+        }
+      }
+
+      return newScore;
+    });
   };
 
   const handleChange = (
@@ -87,6 +94,11 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     );
 
     if (name === "challenges") {
+      const cleanedValue =
+        value.startsWith("desc-") || value.startsWith("pers-")
+          ? stripPrefix(value)
+          : value;
+
       setOtherAnswer(value === "other");
 
       if (value !== "other") {
@@ -94,7 +106,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       } else {
         setSubmitQuestion((prev) => ({ ...prev, challenges: "" }));
       }
-
+      updateScore(cleanedValue);
       return;
     }
 
@@ -104,6 +116,23 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
     if (name === "description" || name === "personality") {
       const cleanedValue = stripPrefix(value);
+      updateScore(cleanedValue);
+      setSubmitQuestion((prev) => ({ ...prev, [name]: cleanedValue }));
+      return;
+    }
+
+    if (
+      name === "description" ||
+      name === "personality" ||
+      name === "recharge" ||
+      name === "frustration" ||
+      name === "approach"
+    ) {
+      const cleanedValue =
+        value.startsWith("desc-") || value.startsWith("pers-")
+          ? stripPrefix(value)
+          : value;
+
       updateScore(cleanedValue);
       setSubmitQuestion((prev) => ({ ...prev, [name]: cleanedValue }));
       return;
