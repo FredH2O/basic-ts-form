@@ -18,6 +18,18 @@ export type FormValues = {
   recharge: string;
 };
 
+type ScoreValue = {
+  introvert: number;
+  extrovert: number;
+  optimist: number;
+  pessimist: number;
+  perfectionist: number;
+  adventurer: number;
+  peacemaker: number;
+  leader: number;
+  mixed: number;
+};
+
 type FormContextType = {
   submitQuestion: FormValues;
   setSubmitQuestion: Dispatch<SetStateAction<FormValues>>;
@@ -27,6 +39,10 @@ type FormContextType = {
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => void;
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  score: ScoreValue;
+  setScore: Dispatch<SetStateAction<ScoreValue>>;
+  result: string;
+  setResult: Dispatch<SetStateAction<string>>;
 };
 
 const initialScore = {
@@ -61,9 +77,9 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     approach: "",
     recharge: "",
   });
-
-  const [score, setScore] = useState(initialScore);
+  const [score, setScore] = useState<FormContextType["score"]>(initialScore);
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
+  const [result, setResult] = useState<string>("");
 
   const stripPrefix = (value: string): string => {
     return value.replace(/^desc-/, "").replace(/^pers-/, "");
@@ -149,18 +165,22 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(JSON.stringify(score, null, 2));
+
+    console.log(
+      `Overall score in JSON format: ${JSON.stringify(score, null, 2)}`
+    );
 
     const topTrait = getTopTrait(score);
-    console.log(topTrait);
 
     switch (topTrait) {
       case "introvert":
-        console.log("Introvert");
+        setResult("introvert");
         break;
+
       case "extrovert":
-        console.log("Extrovert");
+        setResult("extrovert");
         break;
+
       default:
         break;
     }
@@ -176,7 +196,6 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     });
 
     setScore(initialScore); //reset
-
     setOtherAnswer(false);
   };
 
@@ -189,6 +208,10 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
         setOtherAnswer,
         handleChange,
         handleSubmit,
+        score,
+        setScore,
+        result,
+        setResult,
       }}
     >
       {children}
