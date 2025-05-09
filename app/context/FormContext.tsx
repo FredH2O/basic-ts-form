@@ -152,24 +152,18 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     console.log(JSON.stringify(score, null, 2));
 
     const topTrait = getTopTrait(score);
+    console.log(topTrait);
 
     switch (topTrait) {
       case "introvert":
-        alert("You're an introvert bro");
+        console.log("Introvert");
         break;
-
+      case "extrovert":
+        console.log("Extrovert");
+        break;
       default:
         break;
     }
-    // alert(
-    //   `Thank you! ${submitQuestion.name},
-    //   ${submitQuestion.description},
-    //   ${submitQuestion.challenges},
-    //   ${submitQuestion.personality},
-    //   ${submitQuestion.frustration},
-    //   ${submitQuestion.approach},
-    //   ${submitQuestion.recharge}`
-    // );
 
     setSubmitQuestion({
       name: "",
@@ -180,6 +174,8 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       approach: "",
       recharge: "",
     });
+
+    setScore(initialScore); //reset
 
     setOtherAnswer(false);
   };
