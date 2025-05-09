@@ -6,6 +6,7 @@ type FormSectionProp = {
   children: ReactNode;
   next?: string;
   previous?: string;
+  result?: string;
 };
 
 const FormSection = ({
@@ -13,9 +14,16 @@ const FormSection = ({
   children,
   next,
   previous,
+  result,
 }: FormSectionProp) => {
   return (
-    <div className="flex justify-center items-center h-screen px-3">
+    <div className="relative flex justify-center items-center h-screen px-3">
+      {result && (
+        <div className="absolute top-0 left-0 flex justify-center items-center bg-black opacity-90 inset-0 border">
+          <p>You're a {result}</p>
+        </div>
+      )}
+
       <form
         onSubmit={onSubmit}
         className="container p-3 bg-neutral-700 m-auto max-w-md rounded flex flex-col justify-center items-center"

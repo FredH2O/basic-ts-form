@@ -6,19 +6,22 @@ import ChallangesQuestion from "../../components/Questions_3/ChallengesQuestion"
 import ApproachQuestion from "../../components/Questions_3/ApproachQuestion";
 
 const Page3 = () => {
-  const { handleChange, handleSubmit, submitQuestion, otherAnswer } =
+  const { handleChange, handleSubmit, submitQuestion, otherAnswer, result } =
     useFormContext();
+
   return (
-    <FormSection onSubmit={handleSubmit} previous="/Page2">
+    <FormSection onSubmit={handleSubmit} previous="/Page2" result={result}>
       <FrustrationQuestion
         onChange={handleChange}
         value={submitQuestion.frustration}
       />
+
       <ChallangesQuestion
         onChange={handleChange}
         value={submitQuestion.challenges}
         otherAnswer={otherAnswer}
       />
+
       <ApproachQuestion
         onChange={handleChange}
         value={submitQuestion.approach}

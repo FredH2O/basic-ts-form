@@ -199,6 +199,10 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     setOtherAnswer(false);
   };
 
+  const handleReset = () => {
+    setResult("");
+  };
+
   return (
     <FormContext.Provider
       value={{
