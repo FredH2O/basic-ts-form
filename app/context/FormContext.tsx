@@ -43,6 +43,7 @@ type FormContextType = {
   setScore: Dispatch<SetStateAction<ScoreValue>>;
   result: string;
   setResult: Dispatch<SetStateAction<string>>;
+  handleReset: (e: FormEvent<HTMLButtonElement>) => void;
 };
 
 const initialScore = {
@@ -184,7 +185,10 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       default:
         break;
     }
+  };
 
+  const handleReset = () => {
+    setResult("");
     setSubmitQuestion({
       name: "",
       description: "",
@@ -197,10 +201,6 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
     setScore(initialScore); //reset
     setOtherAnswer(false);
-  };
-
-  const handleReset = () => {
-    setResult("");
   };
 
   return (
@@ -216,6 +216,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
         setScore,
         result,
         setResult,
+        handleReset,
       }}
     >
       {children}
