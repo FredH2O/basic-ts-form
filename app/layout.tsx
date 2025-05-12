@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <Header
           img={{ src: "/images/form-logo.png", alt: "Form Logo" }}
-          title="Form Survey"
+          title="Personality Checker"
         />
         <main role="main" className="bg-gray-900">
           <FormProvider>{children}</FormProvider>
