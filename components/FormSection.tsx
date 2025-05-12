@@ -8,6 +8,7 @@ type FormSectionProp = {
   previous?: string;
   result?: string;
   closeResult?: (e: FormEvent<HTMLButtonElement>) => void;
+  name?: string;
 };
 
 const FormSection = ({
@@ -17,7 +18,16 @@ const FormSection = ({
   previous,
   result,
   closeResult,
+  name,
 }: FormSectionProp) => {
+  const capitalizedName = name
+    ? name?.charAt(0).toUpperCase() + name?.slice(1)
+    : "";
+
+  const capitalizedResult = result
+    ? result.charAt(0).toUpperCase() + result.slice(1)
+    : "";
+
   return (
     <div className="relative flex justify-center items-center h-screen px-3">
       {result && (
@@ -27,6 +37,7 @@ const FormSection = ({
             <div className="z-20 gap-5 justify-center items-center flex flex-col h-[500px] bg-gray-800 rounded-xl">
               <h2 className="text-3xl">The results are in.. </h2>
               <p className="text-xl">
+                <span>{capitalizedName}</span>{" "}
                 {`you're ${
                   result === "introvert" ||
                   result === "extrovert" ||
@@ -34,10 +45,7 @@ const FormSection = ({
                     ? "an"
                     : "a"
                 } `}
-                <span className="font-bold italic">
-                  {result.charAt(0).toUpperCase() + result.slice(1)}
-                </span>{" "}
-                !
+                <span className="font-bold italic">{capitalizedResult}</span> !
               </p>
               <button
                 className="hover:cursor-pointer hover:bg-blue-800 px-3 py-2 rounded bg-blue-500 text-xl"

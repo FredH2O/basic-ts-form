@@ -21,6 +21,7 @@ const Page3 = () => {
       previous="/Page2"
       closeResult={handleReset}
       result={result}
+      name={submitQuestion.name}
     >
       <FrustrationQuestion
         onChange={handleChange}
