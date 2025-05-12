@@ -182,6 +182,34 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
         setResult("extrovert");
         break;
 
+      case "optimist":
+        setResult("optimist");
+        break;
+
+      case "pessimist":
+        setResult("pessimist");
+        break;
+
+      case "perfectionist":
+        setResult("perfectionist");
+        break;
+
+      case "adventurer":
+        setResult("adventurer");
+        break;
+
+      case "peacemaker":
+        setResult("peacemaker");
+        break;
+
+      case "leader":
+        setResult("leader");
+        break;
+
+      case "mixed":
+        setResult("mixed");
+        break;
+
       default:
         break;
     }
