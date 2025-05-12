@@ -22,7 +22,17 @@ const FormSection = ({
     <div className="relative flex justify-center items-center h-screen px-3">
       {result && (
         <div className="absolute top-0 left-0 flex flex-col justify-center items-center bg-black opacity-90 inset-0 border">
-          <p>You're a {result}</p>
+          <p>
+            The results are in..{" "}
+            {`you're ${
+              result === "introvert" ||
+              result === "extrovert" ||
+              result === "optimist"
+                ? "an"
+                : "a"
+            } ${result}`}
+            !
+          </p>
           <button
             className="hover:cursor-pointer hover:bg-blue-800 px-2 py-1 rounded-xl bg-blue-600"
             onClick={closeResult}

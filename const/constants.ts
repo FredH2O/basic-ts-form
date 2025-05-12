@@ -100,7 +100,7 @@ export const CHALLENGES = [
   { title: "Try something bold and untested 🌍", value: "adventurer", key: 6 },
   { title: "Keep things calm and balanced ☮️", value: "peacemaker", key: 7 },
   { title: "Step up and take charge 🦸‍♂️", value: "leader", key: 8 },
-  { title: "It depends on the situation 🤔", value: "other", key: 9 },
+  { title: "Other 🤔", value: "other", key: 9 },
 ] as const;
 
 export const FRUSTRATION_QUESTION = [
