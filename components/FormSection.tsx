@@ -21,25 +21,33 @@ const FormSection = ({
   return (
     <div className="relative flex justify-center items-center h-screen px-3">
       {result && (
-        <div className="absolute top-0 left-0 flex flex-col justify-center items-center bg-black opacity-90 inset-0 border">
-          <p>
-            The results are in..{" "}
-            {`you're ${
-              result === "introvert" ||
-              result === "extrovert" ||
-              result === "optimist"
-                ? "an"
-                : "a"
-            } ${result}`}
-            !
-          </p>
-          <button
-            className="hover:cursor-pointer hover:bg-blue-800 px-2 py-1 rounded-xl bg-blue-600"
-            onClick={closeResult}
-            type="button"
-          >
-            Close
-          </button>
+        <div className="absolute top-0 left-0 inset-0">
+          <div className="bg-black z-0 absolute opacity-70 inset-0"></div>
+          <div className="flex flex-col max-w-md m-auto h-full justify-center">
+            <div className="z-20 gap-5 justify-center items-center flex flex-col h-[500px] bg-gray-800 rounded-xl">
+              <h2 className="text-3xl">The results are in.. </h2>
+              <p className="text-xl">
+                {`you're ${
+                  result === "introvert" ||
+                  result === "extrovert" ||
+                  result === "optimist"
+                    ? "an"
+                    : "a"
+                } `}
+                <span className="font-bold italic">
+                  {result.charAt(0).toUpperCase() + result.slice(1)}
+                </span>{" "}
+                !
+              </p>
+              <button
+                className="hover:cursor-pointer hover:bg-blue-800 px-3 py-2 rounded bg-blue-500 text-xl"
+                onClick={closeResult}
+                type="button"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       )}
 
@@ -48,7 +56,9 @@ const FormSection = ({
         className="container p-3 bg-neutral-700 m-auto max-w-md rounded flex flex-col justify-center items-center"
       >
         <fieldset className="border w-full p-3 rounded">
-          <legend className="p-1 text-2xl">Tell us about yourself?</legend>
+          <legend className="p-1 text-2xl font-semibold text-white mb-3">
+            Tell us about yourself?
+          </legend>
 
           <div className="flex flex-col justify-start max-w-sm space-y-1">
             {children}
