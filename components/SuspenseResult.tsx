@@ -1,5 +1,6 @@
 import PersonalityDescription from "./PersonalityDescription";
-import { FormEvent } from "react";
+import { FormEvent, useState, useEffect } from "react";
+import Loading from "./Loading";
 
 type Props = {
   result: string;
@@ -8,6 +9,18 @@ type Props = {
 };
 
 const SuspenseResult = ({ result, name, closeResult }: Props) => {
+  const [suspense, setSuspense] = useState(false);
+
+  useEffect(() => {
+    if (result) {
+      const timer = setTimeout(() => {
+        setSuspense(true);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [result]);
+
   const capitalizedName = name
     ? name?.charAt(0).toUpperCase() + name?.slice(1)
     : "";
@@ -18,27 +31,31 @@ const SuspenseResult = ({ result, name, closeResult }: Props) => {
 
   return (
     <>
-      <div className="justify-center items-center flex flex-col gap-3">
-        <p className="text-xl">
-          <span>{capitalizedName}</span>{" "}
-          {`you're ${
-            result === "introvert" ||
-            result === "extrovert" ||
-            result === "optimist"
-              ? "an"
-              : "a"
-          } `}
-          <span className="font-bold italic">{capitalizedResult}</span> !
-        </p>
-        <PersonalityDescription personality={result} />
-        <button
-          className="hover:cursor-pointer hover:bg-blue-800 px-5 py-1 rounded bg-blue-500"
-          onClick={closeResult}
-          type="button"
-        >
-          Close
-        </button>
-      </div>
+      {suspense ? (
+        <div className="justify-center items-center flex flex-col gap-3">
+          <p className="text-xl">
+            <span>{capitalizedName}</span>{" "}
+            {`you're ${
+              result === "introvert" ||
+              result === "extrovert" ||
+              result === "optimist"
+                ? "an"
+                : "a"
+            } `}
+            <span className="font-bold italic">{capitalizedResult}</span> !
+          </p>
+          <PersonalityDescription personality={result} />
+          <button
+            className="hover:cursor-pointer hover:bg-blue-800 px-5 py-1 rounded bg-blue-500"
+            onClick={closeResult}
+            type="button"
+          >
+            Close
+          </button>
+        </div>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };
