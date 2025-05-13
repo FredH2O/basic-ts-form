@@ -153,5 +153,44 @@ export const STARTING_SOMETHING_NEW = [
   { title: "It depends on the project 🤔", value: "other", key: 9 },
 ] as const;
 
+export const PERSONALITY_DESCRIPTION = [
+  {
+    title: "introvert",
+    description: "test",
+  },
+  {
+    title: "extrovert",
+    description: "test",
+  },
+  {
+    title: "optimist",
+    description: "",
+  },
+  {
+    title: "pessimist",
+    description: "",
+  },
+  {
+    title: "perfectionist",
+    description: "",
+  },
+  {
+    title: "adventurer",
+    description: "",
+  },
+  {
+    title: "peacemaker",
+    description: "",
+  },
+  {
+    title: "leader",
+    description: "",
+  },
+  {
+    title: "mixed",
+    description: "",
+  },
+];
+
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
 export type Answer = (typeof TIRING_DAY)[number]["value"];
