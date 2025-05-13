@@ -190,7 +190,7 @@ export const PERSONALITY_DESCRIPTION = [
     title: "mixed",
     description: "",
   },
-];
+] as const;
 
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
 export type Answer = (typeof TIRING_DAY)[number]["value"];

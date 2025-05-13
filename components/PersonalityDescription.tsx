@@ -1,14 +1,25 @@
+import { PERSONALITY_DESCRIPTION } from "../const/constants";
+
 type Props = {
   personality: string;
-  description: string;
 };
 
-const PersonalityDescription = ({ personality, description }: Props) => {
+const PersonalityDescription = ({ personality }: Props) => {
+  const match = PERSONALITY_DESCRIPTION.find(
+    (info) => info.title === personality
+  );
+
   return (
     <div>
-      <p>
-        {personality} - {description}
-      </p>
+      {match ? (
+        <p>
+          <strong>{match.title}</strong> - {match.description}
+        </p>
+      ) : (
+        <p>Personality not found.</p>
+      )}
     </div>
   );
 };
+
+export default PersonalityDescription;

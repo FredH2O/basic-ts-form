@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FormEvent, ReactNode } from "react";
+import PersonalityDescription from "./PersonalityDescription";
 
 type FormSectionProp = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -46,6 +47,7 @@ const FormSection = ({
                     : "a"
                 } `}
                 <span className="font-bold italic">{capitalizedResult}</span> !
+                <PersonalityDescription personality={result} />
               </p>
               <button
                 className="hover:cursor-pointer hover:bg-blue-800 px-3 py-2 rounded bg-blue-500 text-xl"
