@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FormEvent, ReactNode } from "react";
-import PersonalityDescription from "./PersonalityDescription";
+import SuspenseResult from "./SuspenseResult";
 
 type FormSectionProp = {
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -21,41 +21,20 @@ const FormSection = ({
   closeResult,
   name,
 }: FormSectionProp) => {
-  const capitalizedName = name
-    ? name?.charAt(0).toUpperCase() + name?.slice(1)
-    : "";
-
-  const capitalizedResult = result
-    ? result.charAt(0).toUpperCase() + result.slice(1)
-    : "";
-
   return (
     <div className="relative flex justify-center items-center h-screen px-3">
       {result && (
         <div className="absolute top-0 left-0 inset-0">
           <div className="bg-black z-0 absolute opacity-70 inset-0"></div>
           <div className="flex flex-col max-w-md m-auto h-full justify-center">
-            <div className="z-20 gap-5 justify-center items-center flex flex-col h-[500px] bg-gray-800 rounded-xl">
+            <div className="z-20 gap-3 justify-center items-center flex flex-col h-[500px] bg-gray-800 rounded-xl">
               <h2 className="text-3xl">The results are in.. </h2>
-              <p className="text-xl">
-                <span>{capitalizedName}</span>{" "}
-                {`you're ${
-                  result === "introvert" ||
-                  result === "extrovert" ||
-                  result === "optimist"
-                    ? "an"
-                    : "a"
-                } `}
-                <span className="font-bold italic">{capitalizedResult}</span> !
-                <PersonalityDescription personality={result} />
-              </p>
-              <button
-                className="hover:cursor-pointer hover:bg-blue-800 px-3 py-2 rounded bg-blue-500 text-xl"
-                onClick={closeResult}
-                type="button"
-              >
-                Close
-              </button>
+              {/* add suspense here like 2s */}
+              <SuspenseResult
+                result={result}
+                name={name}
+                closeResult={closeResult}
+              />
             </div>
           </div>
         </div>

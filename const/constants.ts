@@ -156,39 +156,48 @@ export const STARTING_SOMETHING_NEW = [
 export const PERSONALITY_DESCRIPTION = [
   {
     title: "introvert",
-    description: "test",
+    description:
+      "An introvert is someone who enjoys spending time alone or in small groups. They usually recharge by staying in rather than going out.",
   },
   {
     title: "extrovert",
-    description: "test",
+    description:
+      "An extrovert is a person who gets energy from being around people. They love socializing, meeting new folks, and being in lively environments.",
   },
   {
     title: "optimist",
-    description: "",
+    description:
+      "An optimist tends to see the good in situations. Even when things go wrong, they believe it'll all work out in the end.",
   },
   {
     title: "pessimist",
-    description: "",
+    description:
+      "A pessimist usually expects the worst in a situation. They’re not trying to be negative — they just like being prepared for anything.",
   },
   {
     title: "perfectionist",
-    description: "",
+    description:
+      "A perfectionist likes things done just right. They can be really detail-oriented and often set high standards for themselves and others.",
   },
   {
     title: "adventurer",
-    description: "",
+    description:
+      "An adventurer loves trying new things, going to new places, and stepping out of their comfort zone. Life’s all about experiences for them.",
   },
   {
     title: "peacemaker",
-    description: "",
+    description:
+      "A peacemaker tries to keep things calm and avoid conflict. They care about harmony and making sure everyone gets along.",
   },
   {
     title: "leader",
-    description: "",
+    description:
+      "A leader naturally takes charge and helps guide others. They’re confident, decisive, and often the one people turn to when things get tough.",
   },
   {
     title: "mixed",
-    description: "",
+    description:
+      "Someone with a mixed personality doesn’t fit into just one category. They’ve got a little bit of everything, depending on the situation.",
   },
 ] as const;
 

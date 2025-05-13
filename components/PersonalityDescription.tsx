@@ -9,12 +9,14 @@ const PersonalityDescription = ({ personality }: Props) => {
     (info) => info.title === personality
   );
 
+  // const capitalizedTitle = match
+  //   ? match?.title.charAt(0).toUpperCase() + match?.title.slice(1)
+  //   : "";
+
   return (
-    <div>
+    <div className="text-center text-sm italic max-w-sm p-3">
       {match ? (
-        <p>
-          <strong>{match.title}</strong> - {match.description}
-        </p>
+        <p className="">{match.description}</p>
       ) : (
         <p>Personality not found.</p>
       )}
