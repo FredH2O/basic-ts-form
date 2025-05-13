@@ -44,7 +44,7 @@ const FormSection = ({
         onSubmit={onSubmit}
         className="container p-3 bg-neutral-700 m-auto max-w-md rounded flex flex-col justify-center items-center"
       >
-        <fieldset className="border w-full p-3 rounded">
+        <fieldset className="border w-full p-3 mb-5 rounded">
           <legend className="p-1 text-2xl font-semibold text-white mb-3">
             Tell us about yourself?
           </legend>
@@ -62,7 +62,7 @@ const FormSection = ({
           {/* Check if previous is truthy */}
           {previous && (
             <Link
-              className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+              className="hover:cursor-pointer hover:-translate-y-1 hover:text-black transition-all duration-200 hover:bg-blue-600 px-5 py-1 rounded bg-blue-500"
               href={previous}
             >
               Previous Page
@@ -73,7 +73,7 @@ const FormSection = ({
 
           {next ? (
             <Link
-              className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+              className="hover:cursor-pointer hover:-translate-y-1 hover:text-black transition-all duration-200 hover:bg-blue-600 px-5 py-1 rounded bg-blue-500"
               href={next}
             >
               Next Page
@@ -81,7 +81,7 @@ const FormSection = ({
           ) : (
             <button
               type="submit"
-              className="hover:cursor-pointer hover:bg-blue-600 bg-blue-500 px-3 py-1 rounded"
+              className="hover:cursor-pointer hover:-translate-y-1 hover:text-black transition-all duration-200 hover:bg-blue-600 px-5 py-1 rounded bg-blue-500"
             >
               Submit
             </button>

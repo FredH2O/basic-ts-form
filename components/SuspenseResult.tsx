@@ -15,7 +15,7 @@ const SuspenseResult = ({ result, name, closeResult }: Props) => {
     if (result) {
       const timer = setTimeout(() => {
         setSuspense(true);
-      }, 2000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -35,18 +35,18 @@ const SuspenseResult = ({ result, name, closeResult }: Props) => {
         <div className="justify-center items-center flex flex-col gap-3">
           <p className="text-xl">
             <span>{capitalizedName}</span>{" "}
-            {`you're ${
+            {`You're ${
               result === "introvert" ||
               result === "extrovert" ||
               result === "optimist"
                 ? "an"
                 : "a"
             } `}
-            <span className="font-bold italic">{capitalizedResult}</span> !
+            <span className="font-bold italic">{capitalizedResult}.</span>
           </p>
           <PersonalityDescription personality={result} />
           <button
-            className="hover:cursor-pointer hover:bg-blue-800 px-5 py-1 rounded bg-blue-500"
+            className="hover:cursor-pointer hover:-translate-y-1 hover:text-black transition-all duration-200 hover:bg-blue-600 px-5 py-1 rounded bg-blue-500"
             onClick={closeResult}
             type="button"
           >
