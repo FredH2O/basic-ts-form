@@ -201,5 +201,53 @@ export const PERSONALITY_DESCRIPTION = [
   },
 ] as const;
 
+export const CHECKBOXES_QUESTION = [
+  {
+    title: "introvert",
+    value: "introvert",
+    description: "Stay in and cook a cozy meal for one.",
+  },
+  {
+    title: "extrovert",
+    value: "extrovert",
+    description: "Call friends and head out for a lively dinner.",
+  },
+  {
+    title: "optimist",
+    value: "optimist",
+    description: "Whip something up and believe it’ll be delicious.",
+  },
+  {
+    title: "pessimist",
+    value: "pessimist",
+    description: "Assume the fridge is empty—order backup food just in case.",
+  },
+  {
+    title: "perfectionist",
+    value: "perfectionist",
+    description: "Plan the perfect dish down to the last garnish.",
+  },
+  {
+    title: "adventurer",
+    value: "adventurer",
+    description: "Try a new recipe—or wander out to find something wild.",
+  },
+  {
+    title: "peacemaker",
+    value: "peacemaker",
+    description: "Ask what others want and cook something everyone can share.",
+  },
+  {
+    title: "leader",
+    value: "leader",
+    description: "Take charge—choose the place and make it happen.",
+  },
+  {
+    title: "mixed",
+    value: "mixed",
+    description: "Sometimes cook, sometimes go out—depends on the mood.",
+  },
+];
+
 export type PersonalityTrait = (typeof PERSONALITY_TRAITS)[number]["value"];
 export type Answer = (typeof TIRING_DAY)[number]["value"];
