@@ -16,6 +16,7 @@ export type FormValues = {
   frustration: string;
   approach: string;
   recharge: string;
+  eating: string;
 };
 
 type ScoreValue = {
@@ -36,7 +37,9 @@ type FormContextType = {
   otherAnswer: boolean;
   setOtherAnswer: Dispatch<SetStateAction<boolean>>;
   handleChange: (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e:
+      | ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+      | MouseEvent
   ) => void;
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   score: ScoreValue;
@@ -77,6 +80,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     frustration: "",
     approach: "",
     recharge: "",
+    eating: "",
   });
   const [score, setScore] = useState<FormContextType["score"]>(initialScore);
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
@@ -103,9 +107,15 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    e:
+      | ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+      | MouseEvent
   ) => {
-    const { name, value } = e.target;
+    const target = e.target as HTMLButtonElement;
+
+    const name = target.name;
+    const value = target.value;
+
     console.log(
       `Your on ${name.toUpperCase()} + and the value is ${value.toUpperCase()}`
     );
@@ -225,6 +235,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       frustration: "",
       approach: "",
       recharge: "",
+      eating: "",
     });
 
     setScore(initialScore); //reset

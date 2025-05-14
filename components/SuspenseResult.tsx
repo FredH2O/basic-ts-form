@@ -1,3 +1,4 @@
+"use client";
 import PersonalityDescription from "./PersonalityDescription";
 import { FormEvent, useState, useEffect } from "react";
 import Loading from "./Loading";

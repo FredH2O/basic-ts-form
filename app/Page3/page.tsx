@@ -17,7 +17,7 @@ const Page3 = () => {
 
   return (
     <FormSection
-      onSubmit={handleSubmit}
+      next="/Page4"
       previous="/Page2"
       closeResult={handleReset}
       result={result}
