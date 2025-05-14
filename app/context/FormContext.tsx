@@ -37,9 +37,7 @@ type FormContextType = {
   otherAnswer: boolean;
   setOtherAnswer: Dispatch<SetStateAction<boolean>>;
   handleChange: (
-    e:
-      | ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-      | MouseEvent
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => void;
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   score: ScoreValue;
@@ -107,14 +105,9 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const handleChange = (
-    e:
-      | ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-      | MouseEvent
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const target = e.target as HTMLButtonElement;
-
-    const name = target.name;
-    const value = target.value;
+    const { name, value } = e.target;
 
     console.log(
       `Your on ${name.toUpperCase()} + and the value is ${value.toUpperCase()}`
