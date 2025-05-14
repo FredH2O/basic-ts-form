@@ -3,7 +3,7 @@ import { FormEvent, ReactNode } from "react";
 import SuspenseResult from "./SuspenseResult";
 
 type FormSectionProp = {
-  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
   children: ReactNode;
   next?: string;
   previous?: string;
