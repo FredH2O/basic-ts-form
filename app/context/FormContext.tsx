@@ -45,6 +45,8 @@ type FormContextType = {
   result: string;
   setResult: Dispatch<SetStateAction<string>>;
   handleReset: (e: FormEvent<HTMLButtonElement>) => void;
+  invalid: boolean;
+  setInvalid: Dispatch<SetStateAction<boolean>>;
 };
 
 const initialScore = {
@@ -83,6 +85,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const [score, setScore] = useState<FormContextType["score"]>(initialScore);
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
   const [result, setResult] = useState<string>("");
+  const [invalid, setInvalid] = useState<boolean>(false);
 
   const stripPrefix = (value: string): string => {
     return value.replace(/^desc-/, "").replace(/^pers-/, "");
@@ -107,6 +110,10 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
+    if (submitQuestion.eating.length >= 0) {
+      setInvalid(false);
+    }
+
     const { name, value } = e.target;
 
     console.log(
@@ -189,6 +196,11 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (submitQuestion.eating.length === 0) {
+      setInvalid(true);
+      return;
+    }
+
     console.log(
       `Overall score in JSON format: ${JSON.stringify(score, null, 2)}`
     );
@@ -269,6 +281,8 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
         result,
         setResult,
         handleReset,
+        invalid,
+        setInvalid,
       }}
     >
       {children}

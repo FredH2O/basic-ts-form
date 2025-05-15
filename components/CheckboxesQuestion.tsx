@@ -17,17 +17,11 @@ const CheckboxesQuestion = ({
   checked,
   onChange,
 }: Props) => {
-  const handleInvalid = (e: FormEvent<HTMLInputElement>) => {
-    e.currentTarget.setCustomValidity("Please check one of the boxes");
-  };
-
   return (
     <div className="">
       <div>
         <input
           className="mr-2 cursor-pointer"
-          required
-          onInvalid={handleInvalid}
           type="checkbox"
           value={value}
           name={name}

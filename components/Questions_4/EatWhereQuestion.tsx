@@ -4,13 +4,16 @@ import CheckboxesQuestion from "../CheckboxesQuestion";
 import { CHECKBOXES_QUESTION } from "../../const/constants";
 
 const EatWhereQuestion = () => {
-  const { handleChange, submitQuestion } = useFormContext();
-
+  const { handleChange, submitQuestion, invalid } = useFormContext();
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-1 pb-3">
         <h2 className="text-2xl">Feeling hungry? What’s your next move?</h2>
-        <p className="text-xs italic text-green-300">
+        <p
+          className={`text-xs italic text-red-500
+          ${invalid ? "visible" : "hidden"}
+          `}
+        >
           Tick all the boxes that apply to you.
         </p>
       </div>
