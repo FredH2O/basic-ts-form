@@ -203,46 +203,55 @@ export const PERSONALITY_DESCRIPTION = [
 
 export const CHECKBOXES_QUESTION = [
   {
+    key: 1,
     title: "introvert",
     value: "introvert",
     description: "Stay in and cook a cozy meal for one.",
   },
   {
+    key: 2,
     title: "extrovert",
     value: "extrovert",
     description: "Call friends and head out for a lively dinner.",
   },
   {
+    key: 3,
     title: "optimist",
     value: "optimist",
     description: "Whip something up and believe it’ll be delicious.",
   },
   {
+    key: 4,
     title: "pessimist",
     value: "pessimist",
     description: "Assume the fridge is empty—order backup food just in case.",
   },
   {
+    key: 5,
     title: "perfectionist",
     value: "perfectionist",
     description: "Plan the perfect dish down to the last garnish.",
   },
   {
+    key: 6,
     title: "adventurer",
     value: "adventurer",
     description: "Try a new recipe—or wander out to find something wild.",
   },
   {
+    key: 7,
     title: "peacemaker",
     value: "peacemaker",
     description: "Ask what others want and cook something everyone can share.",
   },
   {
+    key: 8,
     title: "leader",
     value: "leader",
     description: "Take charge—choose the place and make it happen.",
   },
   {
+    key: 9,
     title: "mixed",
     value: "mixed",
     description: "Sometimes cook, sometimes go out—depends on the mood.",
