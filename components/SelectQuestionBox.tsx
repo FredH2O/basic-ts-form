@@ -40,6 +40,7 @@ const SelectQuestionBox = ({
       >
         {questions.map((question) => (
           <option
+            className="text-sm"
             hidden={question.value === ""}
             disabled={question.value === ""}
             key={question.key}

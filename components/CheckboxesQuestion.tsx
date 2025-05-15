@@ -3,13 +3,12 @@ type Props = {
   name: string;
   value: string;
   description: string;
-  key: number;
 };
 
-const CheckboxesQuestion = ({ id, name, value, description, key }: Props) => {
+const CheckboxesQuestion = ({ id, name, value, description }: Props) => {
   return (
     <div className="">
-      <div key={key}>
+      <div>
         <input
           className="mr-2 cursor-pointer"
           type="checkbox"
