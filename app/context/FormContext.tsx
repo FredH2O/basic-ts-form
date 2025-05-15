@@ -16,7 +16,7 @@ export type FormValues = {
   frustration: string;
   approach: string;
   recharge: string;
-  eating: string;
+  eating: string[];
 };
 
 type ScoreValue = {
@@ -78,7 +78,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
     frustration: "",
     approach: "",
     recharge: "",
-    eating: "",
+    eating: [],
   });
   const [score, setScore] = useState<FormContextType["score"]>(initialScore);
   const [otherAnswer, setOtherAnswer] = useState<boolean>(false);
@@ -158,6 +158,25 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
 
+    if (name === "eating") {
+      const isChecked = (e.target as HTMLInputElement).checked;
+
+      setSubmitQuestion((prev) => {
+        const existing = prev.eating || [];
+
+        const updatedEating = isChecked
+          ? [...existing, value]
+          : existing.filter((v) => v !== value);
+
+        return { ...prev, eating: updatedEating };
+      });
+
+      if (isChecked) {
+        updateScore(value);
+      }
+      return;
+    }
+
     setSubmitQuestion((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -220,6 +239,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
 
   const handleReset = () => {
     setResult("");
+
     setSubmitQuestion({
       name: "",
       description: "",
@@ -228,7 +248,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
       frustration: "",
       approach: "",
       recharge: "",
-      eating: "",
+      eating: [],
     });
 
     setScore(initialScore); //reset
