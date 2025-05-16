@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { FormEvent, ReactNode } from "react";
 
-Link;
-
 type Props = {
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
   children: ReactNode;

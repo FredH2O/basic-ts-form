@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FormEvent, ReactNode } from "react";
 import SuspenseResult from "./SuspenseResult";
-import Form from "./FirstForm";
+import Form from "./Form";
 
 type FormSectionProp = {
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
@@ -40,7 +40,9 @@ const FormSection = ({
           </div>
         </div>
       )}
-      <Form />
+      <Form onSubmit={onSubmit} next={next} previous={previous}>
+        {children}
+      </Form>
     </div>
   );
 };

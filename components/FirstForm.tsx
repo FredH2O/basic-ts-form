@@ -3,7 +3,7 @@ import { useFormContext } from "../app/context/FormContext";
 import NameQuestion from "./Questions_1/NameQuestion";
 import FormSection from "./FormSection";
 
-const Form = () => {
+const FirstForm = () => {
   const { submitQuestion, handleSubmit } = useFormContext();
 
   return (
@@ -12,4 +12,4 @@ const Form = () => {
     </FormSection>
   );
 };
-export default Form;
+export default FirstForm;
