@@ -22,7 +22,7 @@ const FormSection = ({
   name,
 }: FormSectionProp) => {
   return (
-    <div className="relative flex justify-center items-center h-screen px-3">
+    <div className="relative  flex justify-center items-center h-screen px-3">
       {result && (
         <div className="absolute top-0 left-0 inset-0">
           <div className="bg-black z-0 absolute opacity-70 inset-0"></div>
