@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FormEvent, ReactNode } from "react";
 import SuspenseResult from "./SuspenseResult";
 import Form from "./Form";
@@ -11,6 +10,8 @@ type FormSectionProp = {
   result?: string;
   closeResult?: (e: FormEvent<HTMLButtonElement>) => void;
   name?: string;
+  direction: number;
+  setDirection: (direction: number) => void;
 };
 
 const FormSection = ({

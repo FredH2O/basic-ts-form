@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FormEvent, ReactNode } from "react";
+import { FormEvent, ReactNode, useState } from "react";
+import { motion } from "framer-motion";
 
 type Props = {
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
@@ -13,7 +14,10 @@ type Props = {
 
 const Form = ({ onSubmit, children, previous, next }: Props) => {
   return (
-    <form
+    <motion.form
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
       onSubmit={onSubmit}
       className="container p-3 bg-neutral-700 m-auto max-w-md rounded flex flex-col justify-center items-center"
     >
@@ -60,7 +64,7 @@ const Form = ({ onSubmit, children, previous, next }: Props) => {
           </button>
         )}
       </div>
-    </form>
+    </motion.form>
   );
 };
 
