@@ -37,7 +37,7 @@ To level up my TypeScript skills while having some fun building a fully interact
 
 ## 📦 Deployment
 
-Deployed with [Vercel](). You can fork and deploy it too.
+Deployed with [Vercel](https://personality-checker-nine.vercel.app/). You can fork and deploy it too.
 
 ---
 
