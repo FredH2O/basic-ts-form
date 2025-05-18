@@ -196,7 +196,7 @@ export const FormProvider = ({ children }: { children: ReactNode }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (submitQuestion.eating.length === 0) {
+    if (submitQuestion.eating.length === 0 || submitQuestion.name === "") {
       setInvalid(true);
       return;
     }

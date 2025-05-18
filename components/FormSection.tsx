@@ -10,8 +10,6 @@ type FormSectionProp = {
   result?: string;
   closeResult?: (e: FormEvent<HTMLButtonElement>) => void;
   name?: string;
-  direction: number;
-  setDirection: (direction: number) => void;
 };
 
 const FormSection = ({
