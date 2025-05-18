@@ -16,7 +16,7 @@ const Header = ({ img, title, children }: HeaderProps) => {
           alt={img.alt}
           width={50}
           height={50}
-          className="rounded cursor-pointer hover:bg-green-400 p-1 transition-all duration-300"
+          className="rounded-full cursor-pointer hover:bg-green-400 p-1 transition-all duration-300"
         />
         <h1 className="text-2xl cursor-pointer hover:text-green-400 transition-all duration-300">
           {title}

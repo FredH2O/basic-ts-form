@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import { FormProvider } from "./context/FormContext";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,9 +48,7 @@ export default function RootLayout({
         <main role="main" className="bg-gray-900">
           <FormProvider>{children}</FormProvider>
         </main>
-        <footer className="text-center p-5 bg-black">
-          Footer 2025 Frederico
-        </footer>
+        <Footer />
       </body>
     </html>
   );
